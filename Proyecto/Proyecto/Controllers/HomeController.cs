@@ -24,5 +24,11 @@ namespace Proyecto.Controllers
 
             return View();
         }
+        public ActionResult Contsdsact()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }
