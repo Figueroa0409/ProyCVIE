@@ -13,10 +13,8 @@ namespace Proyecto.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
+        public ActionResult Nosotros()
+        {         
             return View();
         }
 
