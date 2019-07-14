@@ -6,12 +6,17 @@ using System.Web.Mvc;
 
 namespace Proyecto.Controllers
 {
-    public class HomeController : Controller
+    public class consultaController : Controller
     {
+        // GET: consulta
         public ActionResult Index()
         {
             return View();
         }
 
+        public ActionResult consulta()
+        {
+            return View();
+        }
     }
 }

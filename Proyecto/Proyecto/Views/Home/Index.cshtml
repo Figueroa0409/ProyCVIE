@@ -1,22 +1,603 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Hielo by TEMPLATED</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Banner -->
 
-<div id="Carousel01" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#Carousel01" data-slide-to="0" class="active"></li>
-        <li data-target="#Carousel01" data-slide-to="1"></li>
-        <li data-target="#Carousel01" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="~/Images/img_02.jpg" class="d-block w-100" />
+    <section class="banner full">
+        <article>
+            <img src="~/Images/slide01.jpg" alt="" />
+            <div class="inner">
+                <header>
+                    <p>Ahorrar para invertir, no para gastar</p>
+                    <h2>Ahorrar</h2>
+                </header>
+            </div>
+        </article>
+        <article>
+            <img src="~/Images/slide02.jpg" alt="" />
+            <div class="inner">
+                <header>
+                    <p>Planifica tú futuro</p>
+                    <h2>Planificar</h2>
+                </header>
+            </div>
+        </article>
+        <article>
+            <img src="~/Images/slide03.jpg" alt="" />
+            <div class="inner">
+                <header>
+                    <p>Invierte para obtener valor</p>
+                    <h2>Invertir</h2>
+                </header>
+            </div>
+        </article>
+        <article>
+            <img src="~/Images/slide04.jpg" alt="" />
+            <div class="inner">
+                <header>
+                    <p>Comercializa tus productos para obtener mejores resultados</p>
+                    <h2>Publicidad</h2>
+                </header>
+            </div>
+        </article>
+        <article>
+            <img src="~/Images/slide05.jpg" alt="" />
+            <div class="inner">
+                <header>
+                    <p>Vende los mejores productos a tus clientes</p>
+                    <h2>Productos</h2>
+                </header>
+            </div>
+        </article>
+    </section>
+
+    <!-- Informacion Indices -->
+    <section id="one" class="wrapper style2">
+        <div class="inner">
+            <div class="grid-style">
+
+                <div>
+                    <div class="box">
+                        <div class="image fit">
+                            <img src="~/Images/pic01.jpg" alt="" />
+                        </div>
+                        <div class="content">
+                            <header class="align-center">
+                                <p>Información relevante</p>
+                                <h2>Tasa de Política Monetaria</h2>
+                            </header>
+                            <p>
+                                Breve descripción.Breve descripción.Breve descripción.Breve descripción.Breve descripción.
+                                Breve descripción.Breve descripción.Breve descripción.Breve descripción.Breve descripción.
+                                Breve descripción.Breve descripción.Breve descripción.Breve descripción.Breve descripción.
+                            </p>
+                            <footer class="align-center">
+                                <a href="http://localhost:49999/Indices/tasaPolíticaMonetaria" class="button alt">Leer más</a>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="box">
+                        <div class="image fit">
+                            <img src="~/Images/pic02.jpg" alt="" />
+                        </div>
+                        <div class="content">
+                            <header class="align-center">
+                                <p>Información relevante</p>
+                                <h2>Tasa Básica Pasiva</h2>
+                            </header>
+                            <p>
+                                Breve descripción.Breve descripción.Breve descripción.Breve descripción.Breve descripción.
+                                Breve descripción.Breve descripción.Breve descripción.Breve descripción.Breve descripción.
+                                Breve descripción.Breve descripción.Breve descripción.Breve descripción.Breve descripción.
+                            </p>
+                            <footer class="align-center">
+                                <a href="http://localhost:49999/Indices/tasaBasicaPasiva" class="button alt">Leer más</a>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="box">
+                        <div class="image fit">
+                            <img src="~/Images/pic03.jpg" alt="" />
+                        </div>
+                        <div class="content">
+                            <header class="align-center">
+                                <p>Banco Central de Costa Rica</p>
+                                <h2>Tipo de cambio de compra del dólar</h2>
+                            </header>
+                            <p>
+                                Breve descripción.Breve descripción.Breve descripción.Breve descripción.Breve descripción.
+                                Breve descripción.Breve descripción.Breve descripción.Breve descripción.Breve descripción.
+                                Breve descripción.Breve descripción.Breve descripción.Breve descripción.Breve descripción.
+                            </p>
+                            <footer class="align-center">
+                                <a href="http://localhost:49999/Indices/compraDolar" class="button alt">Leer más</a>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="box">
+                        <div class="image fit">
+                            <img src="~/Images/pic04.jpg" alt="" />
+                        </div>
+                        <div class="content">
+                            <header class="align-center">
+                                <p>Banco Central de Costa Rica</p>
+                                <h2>Tipo de Cambio Venta del dólar</h2>
+                            </header>
+                            <p>
+                                Breve descripción.Breve descripción.Breve descripción.Breve descripción.Breve descripción.
+                                Breve descripción.Breve descripción.Breve descripción.Breve descripción.Breve descripción.
+                                Breve descripción.Breve descripción.Breve descripción.Breve descripción.Breve descripción.
+                            </p>
+                            <footer class="align-center">
+                                <a href="http://localhost:49999/Indices/ventaDolar" class="button alt">Leer más</a>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <div class="carousel-item">
-            <img src="~/Images/img_03.jpg" class="d-block w-100" />
+    </section>
+
+    <!--Interlineado -->
+    <section id="two" class="wrapper style3">
+        <div class="inner">
+            <header class="align-center">
+                <p>
+                    Empresa costarricense, nacida en el año 2010 en Desamparados de San José,
+                </p>
+                <h2>El progreso</h2>
+            </header>
         </div>
-        <div class="carousel-item">
-            <img src="~/Images/img_04.jpg" class="d-block w-100" />
+    </section>
+
+
+
+    <!--Informacion general-->
+    <div class="wrapper">
+        <div id="portfolio" class="container">
+            <div class="column1">
+                <div class="box">
+                    <a href="#Historia" class="Historia"><img src="~/images/scr01.jpg" alt="" class="image image-full" /></a>
+                    <h3>Historia</h3>
+                    <p>
+                        El Progreso es una empresa
+                        costarricense, nacida...
+                    </p>
+                    <a href="#Historia" class="button button-small Historia">Leer más</a>
+                </div>
+            </div>
+            <div class="column2">
+                <div class="box">
+                    <a href="#Mision" class="Mision"><img src="~/images/scr02.jpg" alt="" class="image image-full" /></a>
+                    <h3>Misión</h3>
+                    <p>Ser creativos y eficaces en la gestión de inversiones y en la generación de...</p>
+                    <a href="#Mision" class="button button-small Mision">Leer más</a>
+                </div>
+            </div>
+            <div class="column3">
+                <div class="box">
+                    <a href="#Vision" class="Vision"><img src="~/images/scr03.jpg" alt="" class="image image-full" /></a>
+                    <h3>Visión</h3>
+                    <p>Ser reconocidos como la entidad financiera líder en la creación...</p>
+                    <a href="#Vision" class="button button-small Vision">Leer más</a>
+                </div>
+            </div>
+            <div class="column4">
+                <div class="box">
+                    <a href="#Valores" class="Valores"><img src="~/images/scr04.jpg" alt="" class="image image-full" /></a>
+                    <h3>Valores</h3>
+                    <p>Nuestros valores son...</p>
+                    <a href="#Valores" class="button button-small Valores">Leer más</a>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+   
+    <div class="wrapper">
+        <div id="portfolio" class="container">
+            <div class="column5">
+                <div class="box">
+                    <a href="#Social" class="Social"><img src="~/images/src05.jpg" alt="" class="image image-full" /></a>
+                    <h3>Responsabilidad Social</h3>
+                    <p>
+                        En el Progreso contamos con políticas y prácticas...
+                    </p>
+                    <a href="#Social" class="button button-small Social">Leer más</a>
+                </div>
+            </div>
+            <div class="column6">
+                <div class="box">
+                    <a href="#Organigrama" class="Organigrama"><img src="~/images/src06.jpg" alt="" class="image image-full" /></a>
+                    <h3>Organigráma</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                    <a href="#Organigrama" class="button button-small Organigrama">Leer más</a>
+                </div>
+            </div>
+            <div class="column7">
+                <div class="box">
+                    <a href="#General" class="General"><img src="~/images/src07.jpg" alt="" class="image image-full" /></a>
+                    <h3>Objetivo General</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                    <a  href="#General" class="button button-small General">Leer más</a>
+                </div>
+            </div>
+            <div class="column8">
+                <div class="box">
+                    <a href="#Especifico" class="Especifico"><img src="~/images/src08.jpg" alt="" class="image image-full" /></a>
+                    <h3>Objetivo Especifico</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                    <a href="#Especifico" class="button button-small Especifico">Leer más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Informacion general-->
+    <section id="Historia" class="wrapper style2 info-Historia hidden">
+        <div class="inner">
+            <div class="box">
+                <div class="content">
+                    <header class="align-center">
+                        <p>Hace una década</p>
+                        <h2>Historia</h2>
+                    </header>
+                    <p>
+                        El Progreso es una empresa
+                        costarricense, nacida en el año 2010 en
+                        Desamparados de San José, la cual
+                        desde sus inicios se ha ganado el
+                        corazón de los costarricenses brindando
+                        productos de crédito y ahorro, a precios
+                        justos y accesibles para el público en
+                        general.
+                        Dada la demanda actual en el mercado
+                        financiero, y la creciente tendencia en el
+                        análisis de datos, El Progreso ha visto la
+                        necesidad de desarrollar un sistema
+                        web, que le permita tener un contacto
+                        más directo con sus clientes, y a la vez
+                        brindar a los usuarios información de
+                        importancia para la toma de decisiones
+                        financieras, esto mediante una interfaz
+                        amigable, confiable y que sea
+                        vanguardista de las últimas tecnologías.
+                        El Progreso conoce muy bien las necesidades los sus clientes, sin embargo, es
+                        consciente de la poca educación financiera que reciben los mismos en los centros
+                        educativos de primera y segunda enseñanza, así como universitario, por lo cual desea
+                        incluir como pilar de la aplicación web, información de tres indicadores financieros que
+                        usualmente las personas no conocen: Tasa de Política Monetaria, Tasa Básica Pasiva y
+                        Tipos de Cambio del dólar estadounidense con relación al colón costarricense.
+                        Los indicadores mencionados anteriormente, son creados por el Banco Central de Costa
+                        Rica y los mismos pueden ser consultados en la página web oficial del mismo.
+                        A continuación se enuncian algunos aspectos importantes generales de la empresa
+                        como insumo para el desarrollo de la aplicación web.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Mision" class="wrapper style2 info-Mision hidden">
+        <div class="inner">
+            <div class="box">
+                <div class="content">
+                    <header class="align-center">
+                        <p>Creatividad y eficacia</p>
+                        <h2>Misión</h2>
+                    </header>
+                    <p>
+                        Ser creativos y eficaces en la gestión de inversiones y en la generación de oportunidades
+                        de inversión y soluciones financieras, fundamentados en las necesidades de las empresas y en nuestra experiencia y conocimiento, creando valor a nuestros accionistas
+                        y nuestra comunidad.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Vision" class="wrapper style2 info-Vision hidden">
+        <div class="inner">
+            <div class="box">
+                <div class="content">
+                    <header class="align-center">
+                        <p>Reconocimiento</p>
+                        <h2>Visión</h2>
+                    </header>
+                    <p>
+                        Ser reconocidos como la entidad financiera líder en la creación, desarrollo,
+                        administración y distribución de inversiones, comprometidos con el crecimiento
+                        económico del país.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Valores" class="wrapper style2 info-Valores hidden">
+        <div class="inner">
+            <div class="box">
+                <div class="content">
+                    <header class="align-center">
+                        <p>Nos categorizamos</p>
+                        <h2>Valores</h2>
+                    </header>
+                    <p>
+                        Nuestros valores son los siguientes:
+                    </p>
+                    <ul>
+                        <li>Integridad</li>
+                        <li>Creatividad</li>
+                        <li>Enseñar con el ejemplo</li>
+                        <li>Escuchar para entender</li>
+                        <li>Trabajar en equipo</li>
+                        <li>Desarrollar a otros</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Social" class="wrapper style2 info-Social hidden">
+        <div class="inner">
+            <div class="box">
+                <div class="content">
+                    <header class="align-center">
+                        <p>Contamos con políticas y practicas</p>
+                        <h2>Responsabilidad social</h2>
+                    </header>
+                    <p>
+                        En El Progreso contamos con políticas y prácticas fundamentadas en principios y
+                        valores, que contribuyen al logro de los objetivos de la compañía y al fortalecimiento de
+                        relaciones de mutuo beneficio con nuestros grupos de interés (accionistas, clientes,
+                        empresas del portafolio de inversiones, proveedores, colaboradores y comunidad en
+                        general), controlando y midiendo los impactos social, económico y ambiental.
+                        De la mano de nuestro objeto social, logramos cumplir los objetivos de responsabilidad
+                        social empresarial, a través de las unidades de negocio, las filiales y empresas del
+                        portafolio con las cuales logramos un mayor impacto al llegar a distintos sectores de la
+                        sociedad.
+                        Por lo anterior y tomando en consideración su vasta experiencia como programador y la
+                        recomendación de algunos de nuestros clientes, El Progreso lo ha contratado para que
+                        realice una herramienta acorde a las necesidades que se presentarán en los siguientes
+                        puntos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Organigrama" class="wrapper style2 info-Organigrama hidden">
+        <div class="inner">
+            <div class="box">
+                <div class="content">
+                    <header class="align-center">
+                        <p>Colocar texto</p>
+                        <h2>Organigrama</h2>
+                    </header>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="General" class="wrapper style2 info-General hidden">
+        <div class="inner">
+            <div class="box">
+                <div class="content">
+                    <header class="align-center">
+                        <p>Colocar texto</p>
+                        <h2>Objetivo General</h2>
+                    </header>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Especifico" class="wrapper style2 info-Especifico hidden">
+        <div class="inner">
+            <div class="box">
+                <div class="content">
+                    <header class="align-center">
+                        <p>Colocar texto</p>
+                        <h2>Objetivo especifico</h2>
+                    </header>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+<!-- Scripts -->
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.scrollex.min.js"></script>
+<script src="~/Scripts/skel.min.js"></script>
+<script src="~/Scripts/util.js"></script>
+<script src="~/Scripts/main.js"></script>
+<script>
+    $('.Historia').bind('click', function () {
+
+        $('.info-Historia').removeClass('hidden');
+        $('.info-Historia').addClass('visible');
+        $('.info-Mision').removeClass('hidden');
+        $('.info-Mision').addClass('hidden');
+        $('.info-Vision').removeClass('hidden');
+        $('.info-Vision').addClass('hidden');
+        $('.info-Valores').removeClass('hidden');
+        $('.info-Valores').addClass('hidden');
+        $('.info-Social').removeClass('hidden');
+        $('.info-Social').addClass('hidden');
+        $('.info-Organigrama').removeClass('hidden');
+        $('.info-Organigrama').addClass('hidden');
+        $('.info-General').removeClass('hidden');
+        $('.info-General').addClass('hidden');
+        $('.info-Especifico').removeClass('hidden');
+        $('.info-Especifico').addClass('hidden');
+
+    })
+
+    $('.Mision').bind('click', function () {
+
+        $('.info-Mision').removeClass('hidden');
+        $('.info-Mision').addClass('visible');
+        $('.info-Historia').removeClass('hidden');
+        $('.info-Historia').addClass('hidden');
+        $('.info-Vision').removeClass('hidden');
+        $('.info-Vision').addClass('hidden');
+        $('.info-Valores').removeClass('hidden');
+        $('.info-Valores').addClass('hidden');
+        $('.info-Social').removeClass('hidden');
+        $('.info-Social').addClass('hidden');
+        $('.info-Organigrama').removeClass('hidden');
+        $('.info-Organigrama').addClass('hidden');
+        $('.info-General').removeClass('hidden');
+        $('.info-General').addClass('hidden');
+        $('.info-Especifico').removeClass('hidden');
+        $('.info-Especifico').addClass('hidden');
+
+    })
+
+    $('.Vision').bind('click', function () {
+
+        $('.info-Vision').removeClass('hidden');
+        $('.info-Vision').addClass('visible');
+        $('.info-Mision').removeClass('hidden');
+        $('.info-Mision').addClass('hidden');
+        $('.info-Historia').removeClass('hidden');
+        $('.info-Historia').addClass('hidden');
+        $('.info-Valores').removeClass('hidden');
+        $('.info-Valores').addClass('hidden');
+        $('.info-Social').removeClass('hidden');
+        $('.info-Social').addClass('hidden');
+        $('.info-Organigrama').removeClass('hidden');
+        $('.info-Organigrama').addClass('hidden');
+        $('.info-General').removeClass('hidden');
+        $('.info-General').addClass('hidden');
+        $('.info-Especifico').removeClass('hidden');
+        $('.info-Especifico').addClass('hidden');
+
+    })
+
+    $('.Valores').bind('click', function () {
+
+        $('.info-Valores').removeClass('hidden');
+        $('.info-Valores').addClass('visible');
+        $('.info-Mision').removeClass('hidden');
+        $('.info-Mision').addClass('hidden');
+        $('.info-Historia').removeClass('hidden');
+        $('.info-Historia').addClass('hidden');
+        $('.info-Vision').removeClass('hidden');
+        $('.info-Vision').addClass('hidden');
+        $('.info-Social').removeClass('hidden');
+        $('.info-Social').addClass('hidden');
+        $('.info-Organigrama').removeClass('hidden');
+        $('.info-Organigrama').addClass('hidden');
+        $('.info-General').removeClass('hidden');
+        $('.info-General').addClass('hidden');
+        $('.info-Especifico').removeClass('hidden');
+        $('.info-Especifico').addClass('hidden');
+
+    })
+
+    $('.Social').bind('click', function () {
+
+        $('.info-Social').removeClass('hidden');
+        $('.info-Social').addClass('visible');
+        $('.info-Mision').removeClass('hidden');
+        $('.info-Mision').addClass('hidden');
+        $('.info-Historia').removeClass('hidden');
+        $('.info-Historia').addClass('hidden');
+        $('.info-Vision').removeClass('hidden');
+        $('.info-Vision').addClass('hidden');
+        $('.info-Valores').removeClass('hidden');
+        $('.info-Valores').addClass('hidden');
+        $('.info-Organigrama').removeClass('hidden');
+        $('.info-Organigrama').addClass('hidden');
+        $('.info-General').removeClass('hidden');
+        $('.info-General').addClass('hidden');
+        $('.info-Especifico').removeClass('hidden');
+        $('.info-Especifico').addClass('hidden');
+
+    })
+
+    $('.Organigrama').bind('click', function () {
+
+        $('.info-Organigrama').removeClass('hidden');
+        $('.info-Organigrama').addClass('visible');
+        $('.info-Mision').removeClass('hidden');
+        $('.info-Mision').addClass('hidden');
+        $('.info-Historia').removeClass('hidden');
+        $('.info-Historia').addClass('hidden');
+        $('.info-Vision').removeClass('hidden');
+        $('.info-Vision').addClass('hidden');
+        $('.info-Valores').removeClass('hidden');
+        $('.info-Valores').addClass('hidden');
+        $('.info-Social').removeClass('hidden');
+        $('.info-Social').addClass('hidden');
+        $('.info-General').removeClass('hidden');
+        $('.info-General').addClass('hidden');
+        $('.info-Especifico').removeClass('hidden');
+        $('.info-Especifico').addClass('hidden');
+
+    })
+
+    $('.General').bind('click', function () {
+
+        $('.info-General').removeClass('hidden');
+        $('.info-General').addClass('visible');
+        $('.info-Mision').removeClass('hidden');
+        $('.info-Mision').addClass('hidden');
+        $('.info-Historia').removeClass('hidden');
+        $('.info-Historia').addClass('hidden');
+        $('.info-Vision').removeClass('hidden');
+        $('.info-Vision').addClass('hidden');
+        $('.info-Valores').removeClass('hidden');
+        $('.info-Valores').addClass('hidden');
+        $('.info-Social').removeClass('hidden');
+        $('.info-Social').addClass('hidden');
+        $('.info-Organigrama').removeClass('hidden');
+        $('.info-Organigrama').addClass('hidden');
+        $('.info-Especifico').removeClass('hidden');
+        $('.info-Especifico').addClass('hidden');
+
+    })
+
+    $('.Especifico').bind('click', function () {
+
+        $('.info-Especifico').removeClass('hidden');
+        $('.info-Especifico').addClass('visible');
+        $('.info-Mision').removeClass('hidden');
+        $('.info-Mision').addClass('hidden');
+        $('.info-Historia').removeClass('hidden');
+        $('.info-Historia').addClass('hidden');
+        $('.info-Vision').removeClass('hidden');
+        $('.info-Vision').addClass('hidden');
+        $('.info-Valores').removeClass('hidden');
+        $('.info-Valores').addClass('hidden');
+        $('.info-Social').removeClass('hidden');
+        $('.info-Social').addClass('hidden');
+        $('.info-Organigrama').removeClass('hidden');
+        $('.info-Organigrama').addClass('hidden');
+        $('.info-General').removeClass('hidden');
+        $('.info-General').addClass('hidden');
+
+    })
+
+</script>
+</html>

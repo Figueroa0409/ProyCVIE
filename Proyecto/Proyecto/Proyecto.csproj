@@ -120,7 +120,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\consultaController.cs" />
+    <Compile Include="Controllers\detalleIndicadorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IndicesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -131,28 +134,54 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Estilos.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\main.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\img_01.jpg" />
-    <Content Include="Images\img_02.jpg" />
-    <Content Include="Images\img_03.jpg" />
-    <Content Include="Images\img_04.jpg" />
+    <Content Include="Images\bg.jpg" />
+    <Content Include="Images\pic01.jpg" />
+    <Content Include="Images\pic02.jpg" />
+    <Content Include="Images\pic03.jpg" />
+    <Content Include="Images\pic04.jpg" />
+    <Content Include="Images\scr01.jpg" />
+    <Content Include="Images\scr02.jpg" />
+    <Content Include="Images\scr03.jpg" />
+    <Content Include="Images\scr04.jpg" />
+    <Content Include="Images\slide01.jpg" />
+    <Content Include="Images\slide02.jpg" />
+    <Content Include="Images\slide03.jpg" />
+    <Content Include="Images\slide04.jpg" />
+    <Content Include="Images\slide05.jpg" />
+    <Content Include="Images\src05.jpg" />
+    <Content Include="Images\src06.jpg" />
+    <Content Include="Images\src07.jpg" />
+    <Content Include="Images\src08.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.scrollex.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\skel.min.js" />
+    <Content Include="Scripts\util.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -164,8 +193,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Nosotros.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Indices\tasaPolíticaMonetaria.cshtml" />
+    <Content Include="Views\Indices\tasaBasicaPasiva.cshtml" />
+    <Content Include="Views\Indices\ventaDolar.cshtml" />
+    <Content Include="Views\Indices\compraDolar.cshtml" />
+    <Content Include="Views\detalleIndicador\detalleIndicador.cshtml" />
+    <Content Include="Views\consulta\consulta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
