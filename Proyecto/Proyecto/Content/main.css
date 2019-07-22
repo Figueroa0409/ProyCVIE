@@ -4420,3 +4420,8 @@
 	.button-small
 	{
 	}
+
+.btn-block {
+    display: block;
+    width: 100% !important;
+}
