@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -120,14 +128,58 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\compraDolarController.cs" />
     <Compile Include="Controllers\consultaController.cs" />
     <Compile Include="Controllers\detalleIndicadorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\IndicesController.cs" />
+    <Compile Include="Controllers\tasaBasicaPasivaController.cs" />
+    <Compile Include="Controllers\tasaPolíticaMonetariaController.cs" />
+    <Compile Include="Controllers\ventaDolarController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\cantones.cs">
+      <DependentUpon>indicadoresDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\compraDolar.cs" />
+    <Compile Include="Models\consulta.cs" />
+    <Compile Include="Models\detalleIndicador.cs" />
+    <Compile Include="Models\distritos.cs">
+      <DependentUpon>indicadoresDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\indicadoresDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>indicadoresDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\indicadoresDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>indicadoresDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\indicadoresDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>indicadoresDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\provincias.cs">
+      <DependentUpon>indicadoresDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tasaBasicaPasiva.cs" />
+    <Compile Include="Models\tasaPolíticaMonetaria.cs" />
+    <Compile Include="Models\ubicaciones.cs" />
+    <Compile Include="Models\ventaDolar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\apiIndicadores.gee\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -159,6 +211,16 @@
     <Content Include="Images\src06.jpg" />
     <Content Include="Images\src07.jpg" />
     <Content Include="Images\src08.jpg" />
+    <Content Include="Models\indicadoresDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>indicadoresDB.Context.cs</LastGenOutput>
+      <DependentUpon>indicadoresDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\indicadoresDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>indicadoresDB.edmx</DependentUpon>
+      <LastGenOutput>indicadoresDB.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\fontawesome-webfont.eot" />
@@ -166,6 +228,17 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
+    <EntityDeploy Include="Models\indicadoresDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>indicadoresDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\indicadoresDB.edmx.diagram">
+      <DependentUpon>indicadoresDB.edmx</DependentUpon>
+    </Content>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -182,6 +255,11 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\skel.min.js" />
     <Content Include="Scripts\util.js" />
+    <Content Include="Web References\apiIndicadores.gee\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\apiIndicadores.gee\wsindicadoreseconomicos.disco" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -194,16 +272,16 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Indices\tasaPolíticaMonetaria.cshtml" />
-    <Content Include="Views\Indices\tasaBasicaPasiva.cshtml" />
-    <Content Include="Views\Indices\ventaDolar.cshtml" />
-    <Content Include="Views\Indices\compraDolar.cshtml" />
+    <Content Include="Views\tasaPolíticaMonetaria\tasaPolíticaMonetaria.cshtml" />
+    <Content Include="Views\tasaBasicaPasiva\tasaBasicaPasiva.cshtml" />
+    <Content Include="Views\ventaDolar\ventaDolar.cshtml" />
+    <Content Include="Views\compraDolar\compraDolar.cshtml" />
     <Content Include="Views\detalleIndicador\detalleIndicador.cshtml" />
     <Content Include="Views\consulta\consulta.cshtml" />
+    <None Include="Web References\apiIndicadores.gee\wsindicadoreseconomicos.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -217,6 +295,28 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://gee.bccr.fi.cr/Indicadores/Suscripciones/WS/wsindicadoreseconomicos.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\apiIndicadores.gee\</RelPath>
+      <UpdateFromURL>https://gee.bccr.fi.cr/Indicadores/Suscripciones/WS/wsindicadoreseconomicos.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Proyecto_apiIndicadores_gee_wsindicadoreseconomicos</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

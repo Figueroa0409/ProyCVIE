@@ -40,25 +40,26 @@
                         </h3>
                     </p>
                     <!--Comentar noticia-->
-                    <form class="form-horizontal" action=" " method="post" id="contact_form">
-                        <fieldset>
-                            <class>
-                                <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 inputGroupContainer">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        <input name="nombre" class="form-control" type="text" placeholder="Nombre">
-                                    </div><br />
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
-                                        <textarea style="height:150px; resize:none;" placeholder="Comentario"></textarea>
-                                    </div><br />
-                                    <div class="input-group">
-                                        <button name="adduser" type="submit" class="btn btn-warning btn-block" id="contact-submit" style="background-color:#80808042; border-color:#80808042;">Comentar</button>
+                    @using (Html.BeginForm("comentar", "consulta", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal", @id = "contact_form" }))
+                    {
+                            <fieldset>
+                                <class>
+                                    <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 inputGroupContainer">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                            @Html.TextBox("nombre", ViewBag.nombre as string, htmlAttributes: new { @class = "form-control", @style = "", @required = "required;", @placeholder = "Nombre", @type = "text" })
+                                        </div><br />
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+                                            @Html.TextArea("Comentario", ViewBag.Comentario as string, htmlAttributes: new { @class = "form-control", @style = "height:150px; resize:none;", @required = "required;", @placeholder = "Comentario", @type = "text" })
+                                        </div><br />
+                                        <div class="input-group">
+                                            <button name="adduser" type="submit" class="btn btn-warning btn-block" id="contact-submit" style="background-color:#80808042; border-color:#80808042;">Comentar</button>
+                                        </div>
                                     </div>
-                                </div>
-                        </fieldset>
-                    </form>
-                </div>
+                            </fieldset>
+                    }
+                    </div>
                 <hr />
             </div>
         </div>
@@ -73,24 +74,25 @@
                         </h2>
                     </p>
                     <!--Publicar oticia-->
-                    <form class="form-horizontal" action=" " method="post" id="contact_form">
+                    @using (Html.BeginForm("publicar", "consulta", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal", @id = "contact_form" }))
+                    {
                         <fieldset>
                             <class>
                                 <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        <input name="nombre" class="form-control" type="text" placeholder="Nombre">
+                                        @Html.TextBox("nombre", ViewBag.nombre as string, htmlAttributes: new { @class = "form-control", @style = "", @required = "required;", @placeholder = "Nombre", @type = "text" })
                                     </div><br />
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
-                                        <textarea style="height:150px; resize:none;" placeholder="Consulta"></textarea>
+                                        @Html.TextArea("Comentario", ViewBag.publicar as string, htmlAttributes: new { @class = "form-control", @style = "height:150px; resize:none;", @required = "required;", @placeholder = "Nueva consulta", @type = "text" })
                                     </div><br />
                                     <div class="input-group">
                                         <button name="adduser" type="submit" class="btn btn-warning btn-block" id="contact-submit" style="background-color:#80808042; border-color:#80808042;">Publicar</button>
                                     </div>
                                 </div>
                         </fieldset>
-                    </form>
+                    }
                 </div>
                 <hr />
             </div>

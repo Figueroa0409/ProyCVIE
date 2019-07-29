@@ -1,12 +1,13 @@
-﻿
+﻿@model Proyecto.Models.ubicaciones
 
 <!DOCTYPE HTML>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Hielo by TEMPLATED</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="~/Content/main.css" rel="stylesheet" />
+    <script></script>
 </head>
 <body>
 
@@ -20,141 +21,134 @@
     </section>
 
     <div class="container" style="margin-top:50px;">
-        <form class="form-horizontal" action=" " method="post" id="contact_form">
-            <fieldset>
-                <!-- Form Name -->
-                <class style="text-align:center;">
+        @using (Html.BeginForm("notificaciones", "detalleIndicador", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal", @id="contact_form"}))
+        {
+                <fieldset>
+                    <!-- Form Name -->
+                    <class style="text-align:center;">
 
-                    <!-- Text input-->
+                        <!-- Text input-->
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Nombre</label>
-                        <div class="col-md-4 inputGroupContainer">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input name="nombre" class="form-control" type="text">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Nombre</label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    @Html.TextBox("nombre", ViewBag.nombre as string, htmlAttributes: new { @class = "form-control", @style = "", @required = "required;", @placeholder = "Nombre", @type = "text" })
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Text input-->
+                        <!-- Text input-->
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Cédula</label>
-                        <div class="col-md-4 inputGroupContainer">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-registration-mark"></i></span>
-                                <input name="cedula" class="form-control" type="text">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Cédula</label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-registration-mark"></i></span>
+                                    @Html.TextBox("Cédula", ViewBag.cedula as string, htmlAttributes: new { @class = "form-control", @style = "", @required = "required;", @pattern = "[0-9]{9}", @placeholder = "Cédula", @type = "number" })
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Text input-->
+                        <!-- Text input-->
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Edad</label>
-                        <div class="col-md-4 inputGroupContainer">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
-                                <input name="edad" class="form-control" type="text">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Edad</label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
+                                    @Html.TextBox("Edad", ViewBag.edad as string, htmlAttributes: new { @class = "form-control", @style = "", @required = "required;", @pattern = "[0-9]{2}", @placeholder = "Edad", @type = "number" })
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Correo</label>
-                        <div class="col-md-4 inputGroupContainer">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                <input name="email" class="form-control" type="text">
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Correo</label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                    @Html.TextBox("Correo", ViewBag.email as string, htmlAttributes: new { @class = "form-control", @style = "", @required = "required;", @placeholder = "Ejemplo@gmail.com", @type = "text" })
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Text input-->
+                        <!-- Text input-->
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Profesión</label>
-                        <div class="col-md-4 inputGroupContainer">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-tint"></i></span>
-                                <input name="profesion" class="form-control" type="text">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Profesión</label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-tint"></i></span>
+                                    @Html.TextBox("Profesion", ViewBag.profesion as string, htmlAttributes: new { @class = "form-control", @style = "", @required = "required;", @placeholder = "Profesión", @type = "text" })
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Select Basic -->
-
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Provincia</label>
-                        <div class="col-md-4 selectContainer">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                                <select name="state" class="form-control selectpicker">
-                                    <option value=" "> </option>
-                                    <option>Cartago</option>
-                                    <option>San José</option>
-                                    <option>Alajuela</option>
-                                    <option>Limón</option>
-                                    <option>Puntarenas</option>
-                                    <option>Guanacaste</option>
-                                    <option>Heredia</option>
-                                </select>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Provincia</label>
+                            <div class="col-md-4 selectContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                                    @if (ViewBag.provincia != null)
+                                    {
+                                        @Html.DropDownListFor(model => model.id, ViewBag.provincia as SelectList, "--Seleccionar--", htmlAttributes: new { @class = "form-control selectpicker", @style = "width: 24&;", @required = "required" });
+                                    }
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Select Basic -->
-
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Cantón</label>
-                        <div class="col-md-4 selectContainer">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                                <select name="state" class="form-control selectpicker">
-                                    <option value=" "> </option>
-                                    <option></option>
-                                </select>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Canton</label>
+                            <div class="col-md-4 selectContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                                    @Html.DropDownListFor(model => model.idProvincia, new SelectList(" "), "--Seleccionar--", htmlAttributes: new { @class = "form-control selectpicker", @style = "width: 24&;", @required = "required" });
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Select Basic -->
-
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Distrito</label>
-                        <div class="col-md-4 selectContainer">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                                <select name="state" class="form-control selectpicker">
-                                    <option value=" "> </option>
-                                    <option></option>
-                                </select>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Distrito</label>
+                            <div class="col-md-4 selectContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                                    @Html.DropDownListFor(model => model.idCanton, new SelectList(" "), "--Seleccionar--", htmlAttributes: new { @class = "form-control selectpicker", @style = "width: 24&;", @required = "required" });
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!--
-    <div style="text-align:center;" class="alert alert-success" role="alert" id="success_message"><i class="glyphicon glyphicon-thumbs-up"></i> Success! User Added Succesfully.</div>
-    -->
-                    <!-- Button -->
-
-                    <div class="form-group">
-                        <label class="col-md-4 control-label"></label>
-                        <div class="col-md-4">
-                            <button name="adduser" type="submit" class="btn btn-warning btn-block" id="contact-submit" style="background-color:#80808042; border-color:#80808042;">Recibir notificaciones</button>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label"></label>
+                            <div class="col-md-4">
+                                <button name="adduser" type="submit" class="btn btn-warning btn-block" id="contact-submit" style="background-color:#80808042; border-color:#80808042;">Recibir notificaciones</button>
+                            </div>
                         </div>
-                    </div>
-
+                    </class>
             </fieldset>
-        </form>
+        }
     </div>
+        
 
 </body>
 <!-- Scripts -->
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#id").change(function () {
+            $.get("/detalleIndicador/getCanton", { id: $("#id").val() }, function (data) {
+                $("#idProvincia").empty();
+                $.each(data, function (detalleIndicador, row) {
+                    $("#idProvincia").append("<option value'" + row.idProvincia + "'>" + row.canton + "</option>")
+                });
+            });
+        })
+    });
+
+</script>
 <script src="~/Scripts/jquery.scrollex.min.js"></script>
 <script src="~/Scripts/skel.min.js"></script>
 <script src="~/Scripts/util.js"></script>
 <script src="~/Scripts/main.js"></script>
+
 </html>

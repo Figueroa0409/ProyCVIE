@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="indicadoresDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cantones">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="idProvincia" Type="int" />
+          <Property Name="canton" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="distritos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="idCanton" Type="int" />
+          <Property Name="distritos" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="provincias">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="provincia" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="KK_Cantones">
+          <End Role="provincias" Type="Self.provincias" Multiplicity="0..1" />
+          <End Role="cantones" Type="Self.cantones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="provincias">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cantones">
+              <PropertyRef Name="idProvincia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="KK_Distritos">
+          <End Role="cantones" Type="Self.cantones" Multiplicity="0..1" />
+          <End Role="distritos" Type="Self.distritos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cantones">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="distritos">
+              <PropertyRef Name="idCanton" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="indicadoresDBModelStoreContainer">
+          <EntitySet Name="cantones" EntityType="Self.cantones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="distritos" EntityType="Self.distritos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="provincias" EntityType="Self.provincias" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="KK_Cantones" Association="Self.KK_Cantones">
+            <End Role="provincias" EntitySet="provincias" />
+            <End Role="cantones" EntitySet="cantones" />
+          </AssociationSet>
+          <AssociationSet Name="KK_Distritos" Association="Self.KK_Distritos">
+            <End Role="cantones" EntitySet="cantones" />
+            <End Role="distritos" EntitySet="distritos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="indicadoresDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="cantones">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="idProvincia" Type="Int32" />
+          <Property Name="canton" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="provincias" Relationship="Self.KK_Cantones" FromRole="cantones" ToRole="provincias" />
+          <NavigationProperty Name="distritos" Relationship="Self.KK_Distritos" FromRole="cantones" ToRole="distritos" />
+        </EntityType>
+        <EntityType Name="distritos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="idCanton" Type="Int32" />
+          <Property Name="distritos1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="cantones" Relationship="Self.KK_Distritos" FromRole="distritos" ToRole="cantones" />
+        </EntityType>
+        <EntityType Name="provincias">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="provincia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="cantones" Relationship="Self.KK_Cantones" FromRole="provincias" ToRole="cantones" />
+        </EntityType>
+        <Association Name="KK_Cantones">
+          <End Role="provincias" Type="Self.provincias" Multiplicity="0..1" />
+          <End Role="cantones" Type="Self.cantones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="provincias">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cantones">
+              <PropertyRef Name="idProvincia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="KK_Distritos">
+          <End Role="cantones" Type="Self.cantones" Multiplicity="0..1" />
+          <End Role="distritos" Type="Self.distritos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cantones">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="distritos">
+              <PropertyRef Name="idCanton" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="indicadoresDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cantones" EntityType="Self.cantones" />
+          <EntitySet Name="distritos" EntityType="Self.distritos" />
+          <EntitySet Name="provincias" EntityType="Self.provincias" />
+          <AssociationSet Name="KK_Cantones" Association="Self.KK_Cantones">
+            <End Role="provincias" EntitySet="provincias" />
+            <End Role="cantones" EntitySet="cantones" />
+          </AssociationSet>
+          <AssociationSet Name="KK_Distritos" Association="Self.KK_Distritos">
+            <End Role="cantones" EntitySet="cantones" />
+            <End Role="distritos" EntitySet="distritos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="indicadoresDBModelStoreContainer" CdmEntityContainer="indicadoresDBEntities">
+          <EntitySetMapping Name="cantones">
+            <EntityTypeMapping TypeName="indicadoresDBModel.cantones">
+              <MappingFragment StoreEntitySet="cantones">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
+                <ScalarProperty Name="canton" ColumnName="canton" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="distritos">
+            <EntityTypeMapping TypeName="indicadoresDBModel.distritos">
+              <MappingFragment StoreEntitySet="distritos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idCanton" ColumnName="idCanton" />
+                <ScalarProperty Name="distritos1" ColumnName="distritos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="provincias">
+            <EntityTypeMapping TypeName="indicadoresDBModel.provincias">
+              <MappingFragment StoreEntitySet="provincias">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="provincia" ColumnName="provincia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

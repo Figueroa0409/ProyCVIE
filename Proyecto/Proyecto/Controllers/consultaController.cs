@@ -18,5 +18,15 @@ namespace Proyecto.Controllers
         {
             return View();
         }
+
+        public ActionResult comentar(FormCollection form)
+        {
+            return View();
+        }
+        public ActionResult publicar(FormCollection form)
+        {
+            return View();
+        }
+
     }
 }

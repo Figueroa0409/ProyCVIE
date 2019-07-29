@@ -9,20 +9,20 @@
     @Scripts.Render("~/bundles/modernizr")
     <!-- Header -->
     <header id="header" class="alt">
-        <div class="logo"><a href="http://localhost:49999/home/index">El Progreso</a></div>
+        <div class="logo"><a>@Html.ActionLink("El progreso", "index", "Home")</a></div>
         <a href="#menu">Menu</a>
     </header>
 
     <!-- Nav -->
     <nav id="menu">
         <ul class="links">
-            <li><a href="http://localhost:49999/home/index">Inicio</a></li>
-            <li><a href="http://localhost:49999/Indices/tasaPolíticaMonetaria" class="Especifico">Tasa de política monetaria</a></li>
-            <li><a href="http://localhost:49999/Indices/tasaBasicaPasiva" class="Especifico">Tasa básica pasiva</a></li>
-            <li><a href="http://localhost:49999/Indices/ventaDolar" class="Especifico">Venta dolar</a></li>
-            <li><a href="http://localhost:49999/Indices/compraDolar" class="Especifico">Compra dolar</a></li>
-            <li><a href="http://localhost:49999/detalleIndicador/detalleIndicador" class="Especifico">Detalle indicador</a></li>
-            <li><a href="http://localhost:49999/consulta/consulta" class="Especifico">Foro de consultas</a></li>
+            <li><a>@Html.ActionLink("El progreso", "index", "Home")</a></li>
+            <li><a>@Html.ActionLink("Tasa de política monetaria", "tasaPolíticaMonetaria", "tasaPolíticaMonetaria")</a></li>
+            <li><a>@Html.ActionLink("Tasa básica pasiva", "tasaBasicaPasiva", "tasaBasicaPasiva")</a></li>
+            <li><a>@Html.ActionLink("Venta dolar", "ventaDolar", "ventaDolar")</a></li>
+            <li><a>@Html.ActionLink("Compra dolar", "compraDolar", "compraDolar")</a></li>
+            <li><a>@Html.ActionLink("Detalle indicador", "detalleIndicador", "detalleIndicador")</a></li>
+            <li><a>@Html.ActionLink("Foro de consultas", "consulta", "consulta")</a></li>
         </ul>
     </nav>
 </head>
