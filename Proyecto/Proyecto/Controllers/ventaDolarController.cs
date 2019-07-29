@@ -19,7 +19,7 @@ namespace Proyecto.Controllers
         public ActionResult ventaDolar()
         {
             ventaDolarApi();
-            return View();
+            return View(); 
         }
 
         public String ventaDolarApi()
