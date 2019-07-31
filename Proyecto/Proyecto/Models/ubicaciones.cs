@@ -7,18 +7,25 @@ namespace Proyecto.Models
 {
     public class ubicaciones
     {
-
-        public int id { get; set; }
-
-        public String provincia { get; set; }
-
+        //Provincias
         public int idProvincia { get; set; }
 
-        public String canton { get; set; }
+        public String provincias { get; set; }
 
+        //Cantones
         public int idCanton { get; set; }
 
-        public String distritos { get; set; }
+        public int idCantonProvincia { get; set; }
+
+        public String cantones { get; set; }
+
+        //Distritos
+        public int idDistrito { get; set; }
+
+        public int idDistritoCanton { get; set; }
+
+        public String providistritosncia { get; set; }
+
 
     }
 }

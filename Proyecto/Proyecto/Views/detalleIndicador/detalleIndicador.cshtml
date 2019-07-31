@@ -92,7 +92,7 @@
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                                     @if (ViewBag.provincia != null)
                                     {
-                                        @Html.DropDownListFor(model => model.id, ViewBag.provincia as SelectList, "--Seleccionar--", htmlAttributes: new { @class = "form-control selectpicker", @style = "width: 24&;", @required = "required" });
+                                        @Html.DropDownListFor(model => model.idProvincia, ViewBag.provincia as SelectList, "--Seleccionar--", htmlAttributes: new { @class = "form-control selectpicker", @style = "width: 24&;", @required = "required" });
                                     }
                                 </div>
                             </div>
@@ -103,7 +103,7 @@
                             <div class="col-md-4 selectContainer">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                                    @Html.DropDownListFor(model => model.idProvincia, new SelectList(" "), "--Seleccionar--", htmlAttributes: new { @class = "form-control selectpicker", @style = "width: 24&;", @required = "required" });
+                                    @Html.DropDownListFor(model => model.idCantonProvincia, new SelectList(" "), "--Seleccionar--", htmlAttributes: new { @class = "form-control selectpicker", @style = "width: 24&;", @required = "required" });
                                 </div>
                             </div>
                         </div>
@@ -113,7 +113,7 @@
                             <div class="col-md-4 selectContainer">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                                    @Html.DropDownListFor(model => model.idCanton, new SelectList(" "), "--Seleccionar--", htmlAttributes: new { @class = "form-control selectpicker", @style = "width: 24&;", @required = "required" });
+                                    @Html.DropDownListFor(model => model.idDistrito, new SelectList(" "), "--Seleccionar--", htmlAttributes: new { @class = "form-control selectpicker", @style = "width: 24&;", @required = "required" });
                                 </div>
                             </div>
                         </div>
@@ -135,11 +135,11 @@
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
 <script>
     $(document).ready(function () {
-        $("#id").change(function () {
-            $.get("/detalleIndicador/getCanton", { id: $("#id").val() }, function (data) {
-                $("#idProvincia").empty();
+        $("#idProvincia").change(function () {
+            $.get("/detalleIndicador/getCanton", { idProvincia: $("#idProvincia").val() }, function (data) {
+                $("#idCantonProvincia").empty();
                 $.each(data, function (detalleIndicador, row) {
-                    $("#idProvincia").append("<option value'" + row.idProvincia + "'>" + row.canton + "</option>")
+                    $("#idCantonProvincia").append("<option value'" + row.idCantonProvincia + "'>" + row.cantones + "</option>")
                 });
             });
         })

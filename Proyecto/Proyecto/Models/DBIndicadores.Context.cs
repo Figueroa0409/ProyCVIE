@@ -13,10 +13,10 @@ namespace Proyecto.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class indicadoresDataBaseEntities : DbContext
+    public partial class DBIndicadoresEntities : DbContext
     {
-        public indicadoresDataBaseEntities()
-            : base("name=indicadoresDataBaseEntities")
+        public DBIndicadoresEntities()
+            : base("name=DBIndicadoresEntities")
         {
         }
     

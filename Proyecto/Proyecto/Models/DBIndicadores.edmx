@@ -11,7 +11,7 @@
           </Key>
           <Property Name="idCanton" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idCantonProvincia" Type="int" />
-          <Property Name="cantones" Type="varchar" MaxLength="20" />
+          <Property Name="canton" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="distrito">
           <Key>
@@ -19,14 +19,14 @@
           </Key>
           <Property Name="idDistrito" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idDistritoCanton" Type="int" />
-          <Property Name="distritos" Type="varchar" MaxLength="30" />
+          <Property Name="distrito" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="provincia">
           <Key>
             <PropertyRef Name="idProvincia" />
           </Key>
           <Property Name="idProvincia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="provincias" Type="varchar" MaxLength="20" />
+          <Property Name="provincia" Type="varchar" MaxLength="20" />
         </EntityType>
         <Association Name="FK_Canton">
           <End Role="provincia" Type="Self.provincia" Multiplicity="0..1" />
@@ -76,7 +76,7 @@
           </Key>
           <Property Name="idCanton" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idCantonProvincia" Type="Int32" />
-          <Property Name="cantones" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="canton1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="provincia" Relationship="Self.FK_Canton" FromRole="canton" ToRole="provincia" />
           <NavigationProperty Name="distrito" Relationship="Self.FK_Distrito" FromRole="canton" ToRole="distrito" />
         </EntityType>
@@ -86,7 +86,7 @@
           </Key>
           <Property Name="idDistrito" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idDistritoCanton" Type="Int32" />
-          <Property Name="distritos" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="distrito1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="canton" Relationship="Self.FK_Distrito" FromRole="distrito" ToRole="canton" />
         </EntityType>
         <EntityType Name="provincia">
@@ -94,7 +94,7 @@
             <PropertyRef Name="idProvincia" />
           </Key>
           <Property Name="idProvincia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="provincias" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="provincia1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="canton" Relationship="Self.FK_Canton" FromRole="provincia" ToRole="canton" />
         </EntityType>
         <Association Name="FK_Canton">
@@ -121,7 +121,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="indicadoresDataBaseEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DBIndicadoresEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="canton" EntityType="Self.canton" />
           <EntitySet Name="distrito" EntityType="Self.distrito" />
           <EntitySet Name="provincia" EntityType="Self.provincia" />
@@ -139,13 +139,13 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="indicadoresDBModelStoreContainer" CdmEntityContainer="indicadoresDataBaseEntities">
+        <EntityContainerMapping StorageEntityContainer="indicadoresDBModelStoreContainer" CdmEntityContainer="DBIndicadoresEntities">
           <EntitySetMapping Name="canton">
             <EntityTypeMapping TypeName="indicadoresDBModel.canton">
               <MappingFragment StoreEntitySet="canton">
                 <ScalarProperty Name="idCanton" ColumnName="idCanton" />
                 <ScalarProperty Name="idCantonProvincia" ColumnName="idCantonProvincia" />
-                <ScalarProperty Name="cantones" ColumnName="cantones" />
+                <ScalarProperty Name="canton1" ColumnName="canton" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -154,7 +154,7 @@
               <MappingFragment StoreEntitySet="distrito">
                 <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
                 <ScalarProperty Name="idDistritoCanton" ColumnName="idDistritoCanton" />
-                <ScalarProperty Name="distritos" ColumnName="distritos" />
+                <ScalarProperty Name="distrito1" ColumnName="distrito" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -162,7 +162,7 @@
             <EntityTypeMapping TypeName="indicadoresDBModel.provincia">
               <MappingFragment StoreEntitySet="provincia">
                 <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
-                <ScalarProperty Name="provincias" ColumnName="provincias" />
+                <ScalarProperty Name="provincia1" ColumnName="provincia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

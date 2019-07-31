@@ -9,7 +9,7 @@ namespace Proyecto.Controllers
 {
     public class detalleIndicadorController : Controller
     {
-        indicadoresDBEntities db = new indicadoresDBEntities();
+        indicadoresDataBaseEntities db = new indicadoresDataBaseEntities();
         public ActionResult Index()
         {
             return View();
@@ -24,15 +24,15 @@ namespace Proyecto.Controllers
 
         public void getProvincia()
         {
-            List<provincias> provincia = db.provincias.ToList();
-            ViewBag.provincia = new SelectList(provincia, "id", "provincia");
+            List<provincia> provincias = db.provincia.ToList();
+            ViewBag.provincia = new SelectList(provincias, "idProvincia", "provincias");
         }
 
-        public JsonResult getCanton(int id)
+        public JsonResult getCanton(int idProvincia)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            List<cantones> canton = db.cantones.Where(x => x.id == x.idProvincia).ToList();
-            return Json(canton, JsonRequestBehavior.AllowGet);
+            List<canton> cantones = db.canton.Where(x => x.idCantonProvincia == x.idCantonProvincia).ToList();
+            return Json(cantones, JsonRequestBehavior.AllowGet);
         }
 
         /*public JsonResult getDstrito(int idCanton)

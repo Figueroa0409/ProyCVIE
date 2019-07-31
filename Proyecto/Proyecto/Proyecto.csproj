@@ -138,13 +138,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\cantones.cs">
+    <Compile Include="Models\canton.cs">
       <DependentUpon>indicadoresDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\compraDolar.cs" />
     <Compile Include="Models\consulta.cs" />
     <Compile Include="Models\detalleIndicador.cs" />
-    <Compile Include="Models\distritos.cs">
+    <Compile Include="Models\distrito.cs">
       <DependentUpon>indicadoresDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\indicadoresDB.Context.cs">
@@ -162,7 +162,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>indicadoresDB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\provincias.cs">
+    <Compile Include="Models\provincia.cs">
       <DependentUpon>indicadoresDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tasaBasicaPasiva.cs" />
@@ -213,8 +213,8 @@
     <Content Include="Images\src08.jpg" />
     <Content Include="Models\indicadoresDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>indicadoresDB.Context.cs</LastGenOutput>
       <DependentUpon>indicadoresDB.edmx</DependentUpon>
+      <LastGenOutput>indicadoresDB.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\indicadoresDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

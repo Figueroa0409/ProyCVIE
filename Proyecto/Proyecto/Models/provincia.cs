@@ -12,18 +12,18 @@ namespace Proyecto.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class provincias
+    public partial class provincia
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public provincias()
+        public provincia()
         {
-            this.cantones = new HashSet<cantones>();
+            this.canton = new HashSet<canton>();
         }
     
-        public int id { get; set; }
-        public string provincia { get; set; }
+        public int idProvincia { get; set; }
+        public string provincias { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<cantones> cantones { get; set; }
+        public virtual ICollection<canton> canton { get; set; }
     }
 }

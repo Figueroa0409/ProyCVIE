@@ -12,20 +12,20 @@ namespace Proyecto.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class cantones
+    public partial class canton
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public cantones()
+        public canton()
         {
-            this.distritos = new HashSet<distritos>();
+            this.distrito = new HashSet<distrito>();
         }
     
-        public int id { get; set; }
-        public Nullable<int> idProvincia { get; set; }
-        public string canton { get; set; }
+        public int idCanton { get; set; }
+        public Nullable<int> idCantonProvincia { get; set; }
+        public string cantones { get; set; }
     
-        public virtual provincias provincias { get; set; }
+        public virtual provincia provincia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<distritos> distritos { get; set; }
+        public virtual ICollection<distrito> distrito { get; set; }
     }
 }

@@ -12,12 +12,12 @@ namespace Proyecto.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class distritos
+    public partial class distrito
     {
-        public int id { get; set; }
-        public Nullable<int> idCanton { get; set; }
-        public string distritos1 { get; set; }
+        public int idDistrito { get; set; }
+        public Nullable<int> idDistritoCanton { get; set; }
+        public string distritos { get; set; }
     
-        public virtual cantones cantones { get; set; }
+        public virtual canton canton { get; set; }
     }
 }
