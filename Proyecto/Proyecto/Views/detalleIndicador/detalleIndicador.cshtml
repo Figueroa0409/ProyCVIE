@@ -42,11 +42,35 @@
                         <!-- Text input-->
 
                         <div class="form-group">
+                            <label class="col-md-4 control-label">Primer apellido</label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    @Html.TextBox("apellido1", ViewBag.apellido1 as string, htmlAttributes: new { @class = "form-control", @style = "", @required = "required;", @placeholder = "Primer apellido", @type = "text" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Segundo apellido</label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    @Html.TextBox("apellido2", ViewBag.apellido2 as string, htmlAttributes: new { @class = "form-control", @style = "", @required = "required;", @placeholder = "Segundo apellido", @type = "text" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+
+                        <div class="form-group">
                             <label class="col-md-4 control-label">Cédula</label>
                             <div class="col-md-4 inputGroupContainer">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-registration-mark"></i></span>
-                                    @Html.TextBox("Cédula", ViewBag.cedula as string, htmlAttributes: new { @class = "form-control", @style = "", @required = "required;", @pattern = "[0-9]{9}", @placeholder = "Cédula", @type = "number" })
+                                    @Html.TextBox("Cedula", ViewBag.cedula as string, htmlAttributes: new { @class = "form-control", @style = "", @required = "required;", @pattern = "[0-9]{9}", @placeholder = "Cédula", @type = "number" })
                                 </div>
                             </div>
                         </div>
@@ -103,7 +127,7 @@
                             <div class="col-md-4 selectContainer">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                                    @Html.DropDownListFor(model => model.idCantonProvincia, new SelectList(" "), "--Seleccionar--", htmlAttributes: new { @class = "form-control selectpicker", @style = "width: 24&;", @required = "required" });
+                                    @Html.DropDownListFor(model => model.idCantonProvincia, new SelectList(" "), "--Seleccionar--", htmlAttributes: new { @class = "form-control selectpicker", @style = "width: 24&;", @required = "required" })
                                 </div>
                             </div>
                         </div>
@@ -113,7 +137,7 @@
                             <div class="col-md-4 selectContainer">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                                    @Html.DropDownListFor(model => model.idDistrito, new SelectList(" "), "--Seleccionar--", htmlAttributes: new { @class = "form-control selectpicker", @style = "width: 24&;", @required = "required" });
+                                    @Html.DropDownListFor(model => model.idDistritoCanton, new SelectList(" "), "--Seleccionar--", htmlAttributes: new { @class = "form-control selectpicker", @style = "width: 24&;", @required = "required" })
                                 </div>
                             </div>
                         </div>
@@ -139,7 +163,18 @@
             $.get("/detalleIndicador/getCanton", { idProvincia: $("#idProvincia").val() }, function (data) {
                 $("#idCantonProvincia").empty();
                 $.each(data, function (detalleIndicador, row) {
-                    $("#idCantonProvincia").append("<option value'" + row.idCantonProvincia + "'>" + row.cantones + "</option>")
+                    $("#idCantonProvincia").append("<option value=" + row.idCanton + ">" + row.cantones + "</option>")
+                });
+            });
+        })
+    });
+
+    $(document).ready(function () {
+        $("#idCantonProvincia").change(function () {
+            $.get("/detalleIndicador/getDistrito", { idCanton: $("#idCantonProvincia").val() }, function (data) {
+                $("#idDistritoCanton").empty();
+                $.each(data, function (detalleIndicador, row) {
+                    $("#idDistritoCanton").append("<option value=" + row.idDistritoCanton + ">" + row.distritos + "</option>")
                 });
             });
         })

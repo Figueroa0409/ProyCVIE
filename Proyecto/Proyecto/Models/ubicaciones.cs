@@ -24,7 +24,7 @@ namespace Proyecto.Models
 
         public int idDistritoCanton { get; set; }
 
-        public String providistritosncia { get; set; }
+        public String distritos { get; set; }
 
 
     }

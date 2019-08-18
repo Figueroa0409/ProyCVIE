@@ -259,6 +259,7 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\detalleIndicador\notificaciones.cshtml" />
     <None Include="Web References\apiIndicadores.gee\wsindicadoreseconomicos.disco" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

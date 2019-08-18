@@ -1,7 +1,18 @@
 use indicadoresDB;
 go
 
-create database indicadoresDB;
+--create database indicadoresDB;
+
+create table cliente(
+id int identity(1,1) primary key,
+nombre varchar (20),
+apellido1 varchar (20),
+apellido2 varchar (20),
+cedula varchar (20),
+edad int,
+correo varchar (40),
+profesion varchar (40),
+)
 
 create table provincia(
 idProvincia int identity(1,1) primary key,
@@ -38,7 +49,6 @@ SET IDENTITY_INSERT provincia OFF
 
 select p.idProvincia,p.provincias, c.idCanton,c.cantones from canton c inner join provincia p on p.idProvincia = c.idCantonProvincia;
 select * from canton;
-
 
 SET IDENTITY_INSERT canton ON 
 
