@@ -141,10 +141,19 @@
     <Compile Include="Models\canton.cs">
       <DependentUpon>indicadoresDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\cliente.cs">
+      <DependentUpon>indicadoresDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\compraDolar.cs" />
-    <Compile Include="Models\consulta.cs" />
+    <Compile Include="Models\consulta.cs">
+      <DependentUpon>indicadoresDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConsultaViewModel.cs" />
     <Compile Include="Models\detalleIndicador.cs" />
     <Compile Include="Models\distrito.cs">
+      <DependentUpon>indicadoresDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fecha.cs">
       <DependentUpon>indicadoresDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\indicadoresDB.Context.cs">

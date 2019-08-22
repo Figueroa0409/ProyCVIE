@@ -13,10 +13,10 @@ namespace Proyecto.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class indicadoresDataBaseEntities : DbContext
+    public partial class indicadoresDBEntities : DbContext
     {
-        public indicadoresDataBaseEntities()
-            : base("name=indicadoresDataBaseEntities")
+        public indicadoresDBEntities()
+            : base("name=indicadoresDBEntities")
         {
         }
     
@@ -26,7 +26,10 @@ namespace Proyecto.Models
         }
     
         public virtual DbSet<canton> canton { get; set; }
+        public virtual DbSet<cliente> cliente { get; set; }
+        public virtual DbSet<consulta> consulta { get; set; }
         public virtual DbSet<distrito> distrito { get; set; }
+        public virtual DbSet<fecha> fecha { get; set; }
         public virtual DbSet<provincia> provincia { get; set; }
     }
 }

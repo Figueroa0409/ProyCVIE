@@ -12,10 +12,15 @@ namespace Proyecto.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class consulta
+    public partial class cliente
     {
         public int id { get; set; }
         public string nombre { get; set; }
-        public string consulta1 { get; set; }
+        public string apellido1 { get; set; }
+        public string apellido2 { get; set; }
+        public string cedula { get; set; }
+        public Nullable<int> edad { get; set; }
+        public string correo { get; set; }
+        public string profesion { get; set; }
     }
 }

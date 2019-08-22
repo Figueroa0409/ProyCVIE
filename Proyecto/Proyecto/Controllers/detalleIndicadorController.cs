@@ -10,7 +10,7 @@ namespace Proyecto.Controllers
 {
     public class detalleIndicadorController : Controller
     {
-        indicadoresDataBaseEntities db = new indicadoresDataBaseEntities();
+        indicadoresDBEntities db = new indicadoresDBEntities();
         public ActionResult Index()
         {
             return View();

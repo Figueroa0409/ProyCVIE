@@ -12,10 +12,9 @@ namespace Proyecto.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class consulta
+    public partial class fecha
     {
         public int id { get; set; }
-        public string nombre { get; set; }
-        public string consulta1 { get; set; }
+        public Nullable<System.DateTime> fecha1 { get; set; }
     }
 }

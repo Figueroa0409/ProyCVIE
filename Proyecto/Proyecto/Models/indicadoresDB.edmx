@@ -13,6 +13,27 @@
           <Property Name="idCantonProvincia" Type="int" />
           <Property Name="cantones" Type="varchar" MaxLength="20" />
         </EntityType>
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="20" />
+          <Property Name="apellido1" Type="varchar" MaxLength="20" />
+          <Property Name="apellido2" Type="varchar" MaxLength="20" />
+          <Property Name="cedula" Type="varchar" MaxLength="20" />
+          <Property Name="edad" Type="int" />
+          <Property Name="correo" Type="varchar" MaxLength="40" />
+          <Property Name="profesion" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="consulta">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="20" />
+          <Property Name="consulta" Type="varchar" MaxLength="1000" />
+        </EntityType>
         <EntityType Name="distrito">
           <Key>
             <PropertyRef Name="idDistrito" />
@@ -20,6 +41,13 @@
           <Property Name="idDistrito" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idDistritoCanton" Type="int" />
           <Property Name="distritos" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="fecha">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha" Type="date" />
         </EntityType>
         <EntityType Name="provincia">
           <Key>
@@ -54,7 +82,10 @@
         </Association>
         <EntityContainer Name="indicadoresDBModelStoreContainer">
           <EntitySet Name="canton" EntityType="Self.canton" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cliente" EntityType="Self.cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="consulta" EntityType="Self.consulta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="distrito" EntityType="Self.distrito" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fecha" EntityType="Self.fecha" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="provincia" EntityType="Self.provincia" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Canton" Association="Self.FK_Canton">
             <End Role="provincia" EntitySet="provincia" />
@@ -80,6 +111,27 @@
           <NavigationProperty Name="provincia" Relationship="Self.FK_Canton" FromRole="canton" ToRole="provincia" />
           <NavigationProperty Name="distrito" Relationship="Self.FK_Distrito" FromRole="canton" ToRole="distrito" />
         </EntityType>
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="apellido1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="apellido2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cedula" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="edad" Type="Int32" />
+          <Property Name="correo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="profesion" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="consulta">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="consulta1" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="distrito">
           <Key>
             <PropertyRef Name="idDistrito" />
@@ -88,6 +140,13 @@
           <Property Name="idDistritoCanton" Type="Int32" />
           <Property Name="distritos" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="canton" Relationship="Self.FK_Distrito" FromRole="distrito" ToRole="canton" />
+        </EntityType>
+        <EntityType Name="fecha">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha1" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="provincia">
           <Key>
@@ -121,9 +180,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="indicadoresDataBaseEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="indicadoresDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="canton" EntityType="Self.canton" />
+          <EntitySet Name="cliente" EntityType="Self.cliente" />
+          <EntitySet Name="consulta" EntityType="Self.consulta" />
           <EntitySet Name="distrito" EntityType="Self.distrito" />
+          <EntitySet Name="fecha" EntityType="Self.fecha" />
           <EntitySet Name="provincia" EntityType="Self.provincia" />
           <AssociationSet Name="FK_Canton" Association="Self.FK_Canton">
             <End Role="provincia" EntitySet="provincia" />
@@ -139,7 +201,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="indicadoresDBModelStoreContainer" CdmEntityContainer="indicadoresDataBaseEntities">
+        <EntityContainerMapping StorageEntityContainer="indicadoresDBModelStoreContainer" CdmEntityContainer="indicadoresDBEntities">
           <EntitySetMapping Name="canton">
             <EntityTypeMapping TypeName="indicadoresDBModel.canton">
               <MappingFragment StoreEntitySet="canton">
@@ -149,12 +211,43 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="cliente">
+            <EntityTypeMapping TypeName="indicadoresDBModel.cliente">
+              <MappingFragment StoreEntitySet="cliente">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="edad" ColumnName="edad" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="profesion" ColumnName="profesion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="consulta">
+            <EntityTypeMapping TypeName="indicadoresDBModel.consulta">
+              <MappingFragment StoreEntitySet="consulta">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="consulta1" ColumnName="consulta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="distrito">
             <EntityTypeMapping TypeName="indicadoresDBModel.distrito">
               <MappingFragment StoreEntitySet="distrito">
                 <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
                 <ScalarProperty Name="idDistritoCanton" ColumnName="idDistritoCanton" />
                 <ScalarProperty Name="distritos" ColumnName="distritos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fecha">
+            <EntityTypeMapping TypeName="indicadoresDBModel.fecha">
+              <MappingFragment StoreEntitySet="fecha">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fecha1" ColumnName="fecha" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -4,9 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="bac05ded47854a39ac6c574e3b52e3be" Name="Diagram1">
-        <EntityTypeShape EntityType="indicadoresDBModel.canton" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+      <Diagram DiagramId="e0830c81cc6a45498c0c55aa2d878776" Name="Diagram1">
+        <EntityTypeShape EntityType="indicadoresDBModel.canton" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="indicadoresDBModel.cliente" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="indicadoresDBModel.consulta" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="indicadoresDBModel.distrito" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="indicadoresDBModel.fecha" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="indicadoresDBModel.provincia" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
         <AssociationConnector Association="indicadoresDBModel.FK_Canton" ManuallyRouted="false" />
         <AssociationConnector Association="indicadoresDBModel.FK_Distrito" ManuallyRouted="false" />

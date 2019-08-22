@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Proyecto.Models;
 
 namespace Proyecto.Controllers
 {
@@ -11,7 +12,18 @@ namespace Proyecto.Controllers
         // GET: consulta
         public ActionResult Index()
         {
-            return View();
+            List<ConsultaViewModel> list;
+            using (indicadoresDBEntities db = new indicadoresDBEntities()) {
+
+                list = (from d in db.consulta
+                        select new ConsultaViewModel
+                        {
+                            Id = d.id,
+                            Nombre = d.nombre,
+                            Conslta = d.consulta1
+                        }).ToList(); 
+            }
+                return View(list);
         }
 
         public ActionResult consulta()
