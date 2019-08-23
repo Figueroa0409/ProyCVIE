@@ -13,6 +13,8 @@
         <EntityTypeShape EntityType="indicadoresDBModel.provincia" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
         <AssociationConnector Association="indicadoresDBModel.FK_Canton" ManuallyRouted="false" />
         <AssociationConnector Association="indicadoresDBModel.FK_Distrito" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="indicadoresDBModel.respuesta" Width="1.5" PointX="5.75" PointY="5.5" />
+        <AssociationConnector Association="indicadoresDBModel.FK_RESPUESTA_CONSULTA" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

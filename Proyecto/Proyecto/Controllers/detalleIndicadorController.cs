@@ -83,7 +83,7 @@ namespace Proyecto.Controllers
                 smtp.Credentials = new System.Net.NetworkCredential(sCuentaCorreo, sPasswordCorreo);
 
                 smtp.Send(correo);
-                ViewBag.Mensaje = "Mensaje se envió correctamente";
+                ViewBag.Mensaje = "El mensaje se envió correctamente";
             }
             catch (Exception ex) {
                 ViewBag.Mensaje = ex;

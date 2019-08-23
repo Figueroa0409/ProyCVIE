@@ -31,5 +31,6 @@ namespace Proyecto.Models
         public virtual DbSet<distrito> distrito { get; set; }
         public virtual DbSet<fecha> fecha { get; set; }
         public virtual DbSet<provincia> provincia { get; set; }
+        public virtual DbSet<respuesta> respuesta { get; set; }
     }
 }

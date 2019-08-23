@@ -3,6 +3,25 @@ go
 
 --create database indicadoresDB;
 
+create table consulta(
+id int identity (1,1) primary key,
+nombre varchar(20),
+consulta varchar(1000)
+)
+
+create table respuesta(
+id int identity(1,1) primary key,
+consultaId int,
+nombre varchar(20),
+respuesta varchar(1000), 
+constraint FK_RESPUESTA_CONSULTA foreign key (consultaId) references consulta(id)
+)
+
+create table fecha(
+id int identity (1,1) primary key,
+fecha date
+)
+
 create table cliente(
 id int identity(1,1) primary key,
 nombre varchar (20),

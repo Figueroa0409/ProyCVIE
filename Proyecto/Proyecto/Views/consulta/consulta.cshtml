@@ -1,5 +1,4 @@
-﻿@model List<Proyecto.Models.ConsultaViewModel>
-
+﻿@model List<Proyecto.Models.ConsultaViewModel> 
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -7,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="~/Content/main.css" rel="stylesheet" />
-    
+
 </head>
 <body>
 
@@ -25,41 +24,25 @@
             <div class="box">
                 <div class="content">
                     <p>
-                        <h2>
-                            Consulta
-                        </h2>
-                    </p>
-                    <p>
-                        <h3>
-                            Nombre de quien consulta
-                        </h3>
-                    </p>
-                    <p>
-                        <h3>
-                            Responder a la consulta
-                        </h3>
-                    </p>
-                    <!--Comentar noticia-->
-                    @using (Html.BeginForm("comentar", "consulta", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal", @id = "contact_form" }))
-                    {
-                            <fieldset>
-                                <class>
-                                    <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 inputGroupContainer">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                            @Html.TextBox("nombre", ViewBag.nombre as string, htmlAttributes: new { @class = "form-control", @style = "", @required = "required;", @placeholder = "Nombre", @type = "text" })
-                                        </div><br />
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
-                                            @Html.TextArea("Comentario", ViewBag.Comentario as string, htmlAttributes: new { @class = "form-control", @style = "height:150px; resize:none;", @required = "required;", @placeholder = "Comentario", @type = "text" })
-                                        </div><br />
-                                        <div class="input-group">
-                                            <button name="adduser" type="submit" class="btn btn-warning btn-block" id="contact-submit" style="background-color:#80808042; border-color:#80808042;">Comentar</button>
-                                        </div>
-                                    </div>
-                            </fieldset>
-                    }
-                    </div>
+                        @foreach (var element in Model)
+                        {
+                            <h2>@element.Consulta</h2>
+                            <br />
+                            <h3>@element.Nombre</h3>
+                            <br />
+                            if (element.respuesta != null)
+                            {
+                                <h2>Respuestas:</h2>
+                                <h3 style="color:gray">@element.respuesta</h3>
+                                <br />
+                                <h3>@element.nombre</h3>
+                                <br />
+                            }
+                            @Html.ActionLink("Responder", "comentar", new { Id = element.Id })
+                            <hr />
+                        }
+                    </p>                   
+                </div>
                 <hr />
             </div>
         </div>
@@ -106,4 +89,10 @@
 <script src="~/Scripts/skel.min.js"></script>
 <script src="~/Scripts/util.js"></script>
 <script src="~/Scripts/main.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#idProvincia").change(function () {
+            $.get("/detalleIndicador/getCanton", { idProvincia: $("#idProvincia").val() }
+</script>
 </html>

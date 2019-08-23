@@ -174,6 +174,9 @@
     <Compile Include="Models\provincia.cs">
       <DependentUpon>indicadoresDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\respuesta.cs">
+      <DependentUpon>indicadoresDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tasaBasicaPasiva.cs" />
     <Compile Include="Models\tasaPolíticaMonetaria.cs" />
     <Compile Include="Models\ubicaciones.cs" />
@@ -269,6 +272,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
     <Content Include="Views\detalleIndicador\notificaciones.cshtml" />
+    <Content Include="Views\consulta\comentar.cshtml" />
     <None Include="Web References\apiIndicadores.gee\wsindicadoreseconomicos.disco" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

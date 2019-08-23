@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="indicadoresDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="indicadoresDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="canton">
           <Key>
             <PropertyRef Name="idCanton" />
@@ -56,6 +56,15 @@
           <Property Name="idProvincia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="provincias" Type="varchar" MaxLength="20" />
         </EntityType>
+        <EntityType Name="respuesta">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="consultaId" Type="int" />
+          <Property Name="nombre" Type="varchar" MaxLength="20" />
+          <Property Name="respuesta" Type="varchar" MaxLength="1000" />
+        </EntityType>
         <Association Name="FK_Canton">
           <End Role="provincia" Type="Self.provincia" Multiplicity="0..1" />
           <End Role="canton" Type="Self.canton" Multiplicity="*" />
@@ -80,6 +89,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_RESPUESTA_CONSULTA">
+          <End Role="consulta" Type="Self.consulta" Multiplicity="0..1" />
+          <End Role="respuesta" Type="Self.respuesta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="consulta">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="respuesta">
+              <PropertyRef Name="consultaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="indicadoresDBModelStoreContainer">
           <EntitySet Name="canton" EntityType="Self.canton" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cliente" EntityType="Self.cliente" Schema="dbo" store:Type="Tables" />
@@ -87,6 +108,7 @@
           <EntitySet Name="distrito" EntityType="Self.distrito" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="fecha" EntityType="Self.fecha" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="provincia" EntityType="Self.provincia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="respuesta" EntityType="Self.respuesta" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Canton" Association="Self.FK_Canton">
             <End Role="provincia" EntitySet="provincia" />
             <End Role="canton" EntitySet="canton" />
@@ -95,9 +117,12 @@
             <End Role="canton" EntitySet="canton" />
             <End Role="distrito" EntitySet="distrito" />
           </AssociationSet>
+          <AssociationSet Name="FK_RESPUESTA_CONSULTA" Association="Self.FK_RESPUESTA_CONSULTA">
+            <End Role="consulta" EntitySet="consulta" />
+            <End Role="respuesta" EntitySet="respuesta" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="indicadoresDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -131,6 +156,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="consulta1" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="respuesta1" Relationship="indicadoresDBModel.FK_RESPUESTA_CONSULTA" FromRole="consulta" ToRole="respuesta" />
         </EntityType>
         <EntityType Name="distrito">
           <Key>
@@ -195,7 +221,34 @@
             <End Role="canton" EntitySet="canton" />
             <End Role="distrito" EntitySet="distrito" />
           </AssociationSet>
+          <EntitySet Name="respuesta" EntityType="indicadoresDBModel.respuesta" />
+          <AssociationSet Name="FK_RESPUESTA_CONSULTA" Association="indicadoresDBModel.FK_RESPUESTA_CONSULTA">
+            <End Role="consulta" EntitySet="consulta" />
+            <End Role="respuesta" EntitySet="respuesta" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="respuesta">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="consultaId" Type="Int32" />
+          <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="respuesta1" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="consulta" Relationship="indicadoresDBModel.FK_RESPUESTA_CONSULTA" FromRole="respuesta" ToRole="consulta" />
+        </EntityType>
+        <Association Name="FK_RESPUESTA_CONSULTA">
+          <End Type="indicadoresDBModel.consulta" Role="consulta" Multiplicity="0..1" />
+          <End Type="indicadoresDBModel.respuesta" Role="respuesta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="consulta">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="respuesta">
+              <PropertyRef Name="consultaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -256,6 +309,16 @@
               <MappingFragment StoreEntitySet="provincia">
                 <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
                 <ScalarProperty Name="provincias" ColumnName="provincias" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="respuesta">
+            <EntityTypeMapping TypeName="indicadoresDBModel.respuesta">
+              <MappingFragment StoreEntitySet="respuesta">
+                <ScalarProperty Name="respuesta1" ColumnName="respuesta" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="consultaId" ColumnName="consultaId" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
