@@ -61,13 +61,77 @@
                     <p>La tasa pública se publica el día miércoles de cada semana y rige desde el jueves siguientes y durante los siete días posteriores.</p>
                     <h2>D. Gráfico lineal con el comportamiento histórico de los últimos 2 años</h2>
                     <p>
-                        @foreach (var item in Request.Params.AllKeys)
-                        {
-                            @ViewBag.FechaInicio
 
-                            @ViewBag.Valor
-                            <br />
+                        @for (int i = 0; i < ViewBag.Num; i++)
+                        {
+                            @Html.Raw(ViewBag.FechaInicio[i])
+                            @Html.Raw(ViewBag.Valor[i]) <br />
                         }
+
+                        <html>
+                        <head>
+                            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                            <script type="text/javascript">
+                                google.charts.load('current', { 'packages': ['corechart'] });
+                                google.charts.setOnLoadCallback(drawChart);
+
+
+
+                                function drawVisualization() {
+                                    // Create and populate the data table.
+                                    var data = new google.visualization.DataTable();
+                                                                   
+                                    data.addColumn('Fehca', 'Valor');
+                                    data.addColumn('number', 'Numbers'); 
+                                    data.addRows(mycars.length);
+
+                                    @for (int i = 0; i < ViewBag.Num; i++)
+                                    {
+                                        var fecha = @Html.Raw(ViewBag.FechaInicio[i]);
+                                        var valor = @Html.Raw(ViewBag.Valor[i]);
+                                    }
+
+                                    for  (var i = 0; i < 731; i++){
+                                      data.setCell(i,0,fecha[i]);
+                                      data.setCell(i,1,valor[i]);
+                                    }
+                                    // Create and draw the visualization.
+                                    new google.visualization.PieChart(document.getElementById('visualization')).
+                                    draw(data, {title:"So, how was your day?"});
+                                    }
+
+
+
+
+
+
+                                function drawChart() {
+                                    var data = google.visualization.DataTable();
+                                        @for (int i = 0; i < ViewBag.Num; i++)
+                                         {
+                                             @Html.Raw(ViewBag.FechaInicio[i])
+                                             @Html.Raw(ViewBag.Valor[i])                                          
+                                         }
+
+
+                                    var options = {
+                                        title: 'Company Performance',
+                                        curveType: 'function',
+                                        legend: { position: 'bottom' }
+                                    };
+
+                                    var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+                                    chart.draw(data, options);
+                                }
+                            </script>
+                        </head>
+                        <body>
+                            <div id="curve_chart" style="width: 900px; height: 500px"></div>
+                        </body>
+                    </html>
+
+
                     </p>
                     <h2>
                         E. Explicación del impacto que podría tener para los costarricenses las

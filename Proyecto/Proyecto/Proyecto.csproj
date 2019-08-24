@@ -221,8 +221,7 @@
     <Content Include="Images\slide05.jpg" />
     <Content Include="Images\src05.jpg" />
     <Content Include="Images\src06.jpg" />
-    <Content Include="Images\src07.jpg" />
-    <Content Include="Images\src08.jpg" />
+    <Content Include="Images\src07.png" />
     <Content Include="Models\indicadoresDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>indicadoresDB.edmx</DependentUpon>
