@@ -7,5 +7,7 @@ namespace Proyecto.Models
 {
     public class detalleIndicador
     {
+
+
     }
 }

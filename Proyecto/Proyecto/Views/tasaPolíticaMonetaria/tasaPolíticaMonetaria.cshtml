@@ -35,14 +35,9 @@
                     <h2>C. Periodicidad de cálculo del indicador</h2>
                     <p></p>
                     <h2>D. Gráfico lineal con el comportamiento histórico de los últimos 2 años</h2>
-                    <p>
-                        @foreach (var item in Request.Params.AllKeys)
-                        {
-                            @ViewBag.FechaInicio
-                            @ViewBag.Valor
-                            <br />
-                        }
-                    </p>
+                    
+                    <div id="GraficaLineal"></div>
+
                     <h2>
                         E. Explicación del impacto que podría tener para los costarricenses las
                         fluctuaciones a la baja o a la alza de dicho indicador
@@ -62,4 +57,25 @@
 <script src="~/Scripts/skel.min.js"></script>
 <script src="~/Scripts/util.js"></script>
 <script src="~/Scripts/main.js"></script>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json",
+            url: '@Url.Action("tasaPolíticaMonetaria","tasaPolíticaMonetaria")',
+            success: function (result) {
+                google.charts.load('current', {
+                    'packages': ['corechart']
+                });
+                google.charts.setOnLoadCallback(function () {
+                    drawChart(result);
+                });
+            }
+        });
+    });
+    function drawChart() {
+
+    }
+</script>
 </html>

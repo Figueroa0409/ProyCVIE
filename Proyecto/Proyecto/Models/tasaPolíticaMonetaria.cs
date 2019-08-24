@@ -7,5 +7,10 @@ namespace Proyecto.Models
 {
     public class tasaPolíticaMonetaria
     {
+        //Model
+        public int valor { get; set; }
+
+        public DateTime fecha { get; set; }
+
     }
 }

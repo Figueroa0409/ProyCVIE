@@ -18,13 +18,20 @@ namespace Proyecto.Controllers
         public ActionResult tasaPolíticaMonetaria()
         {
             DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
             apiIndicadores.gee.wsindicadoreseconomicos api = new apiIndicadores.gee.wsindicadoreseconomicos();
             ds = api.ObtenerIndicadoresEconomicos("3541", "01/08/2017", "01/08/2019", "Indicadores", "s", "smal11929@gmail.com", "AM9SAML30N");
 
             try
             {
-                ViewBag.FechaInicio = ("" + ds.Tables[0].Rows[0].ItemArray[1].ToString());
-                ViewBag.Valor = ("" + ds.Tables[0].Rows[0].ItemArray[2].ToString());
+                dt = ds.Tables[0];
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    ViewBag.FechaInicio = ("" + dt.Rows[i][1].ToString());
+                    ViewBag.Valor = ("" + dt.Rows[i][2].ToString());
+                }
+                    
             }
             catch (Exception)
             {

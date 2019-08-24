@@ -7,5 +7,11 @@ namespace Proyecto.Models
 {
     public class compraDolar
     {
+
+        //Model
+        public int valor { get; set; }
+
+        public DateTime fecha { get; set; }
+
     }
 }
