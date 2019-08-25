@@ -21,24 +21,23 @@ namespace Proyecto.Controllers
             DataTable dt = new DataTable();
             apiIndicadores.gee.wsindicadoreseconomicos api = new apiIndicadores.gee.wsindicadoreseconomicos();
             ds = api.ObtenerIndicadoresEconomicos("423", "01/08/2017", "01/08/2019", "Indicadores", "s", "smal11929@gmail.com", "AM9SAML30N");
-            var arrayFecha = new string[731];
-            var arrayValor = new string[731];
+            var arrayFecha = new string[731];//731
+            double[] arrayValor = new double[731];//731
             try
             {
-                dt = ds.Tables[0];               
-                for (int i = 0; i < 731; i++)
+                dt = ds.Tables[0];
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    arrayFecha[i] = ("" + dt.Rows[i][1].ToString());
-                    arrayValor[i] = ("" + dt.Rows[i][2].ToString().Replace(",","."));                   
+                    arrayFecha[i] = (dt.Rows[i][1].ToString().Substring(0,9));
+                    arrayValor[i] = Convert.ToDouble(dt.Rows[i][2]);
                 }
             }
             catch (Exception)
             {
 
             }
-            ViewBag.FechaInicio =  arrayFecha;
+            ViewBag.FechaInicio = arrayFecha;
             ViewBag.Valor = arrayValor;
-            ViewBag.Num = dt.Rows.Count;
             return View();
         }
 

@@ -23,27 +23,31 @@
         <div class="inner">
             <div class="box">
                 <div class="content">
-                    <h2>A. Descripción del indicador</h2>
+
                     <p>
-                        Son indicadores de referencia para la venta del dólar de los Estados Unidos de América, los cuales serán utilizados, según 
-                        corresponda, para todos los efectos que contemplen las diferentes leyes, reglamentos, normas y disposiciones generales.
-                        Esos tipos de cambio corresponderán al ‘valor comercial efectivo que, a la fecha de pago, tuviera la moneda extranjera adeudada’, 
-                        al que hace mención el artículo 48 de la Ley Orgánica del Banco Central de Costa Rica
+                        <h3>
+                            Son indicadores de referencia para la venta del dólar de los Estados Unidos de América, los cuales serán utilizados, según
+                            corresponda, para todos los efectos que contemplen las diferentes leyes, reglamentos, normas y disposiciones generales.
+                            Esos tipos de cambio corresponderán al ‘valor comercial efectivo que, a la fecha de pago, tuviera la moneda extranjera adeudada’,
+                            al que hace mención el artículo 48 de la Ley Orgánica del Banco Central de Costa Rica
+                        </h3>
                     </p>
-                    <h2>B. Fórmula de cálculo del indicador</h2>
-                    <p>El cálculo del tipo de cambio de referencia de venta para el día t será el promedio del precio de las transacciones de venta 
-                        ponderado por el monto de cada transacción para el día t-1, durante el período definido por acuerdo de la Junta Directiva del BCCR. </p>
-                    <h2>C. Periodicidad de cálculo del indicador</h2>
-                    <p>Estos indicadores son publicados diariamente por el Banco Central antes de finalizar el día hábil, en su sitio Web.</p>
+                    <p>
+                        <h3>
+                            El cálculo del tipo de cambio de referencia de venta para el día t será el promedio del precio de las transacciones de venta
+                            ponderado por el monto de cada transacción para el día t-1, durante el período definido por acuerdo de la Junta Directiva del BCCR.
+                        </h3>
+                    </p>
+
+                    <p>
+                        <h3>
+                            Estos indicadores son publicados diariamente por el Banco Central antes de finalizar el día hábil, en su sitio Web.
+                        </h3>
+                    </p>
                     <h2>D. Gráfico lineal con el comportamiento histórico de los últimos 2 años</h2>
-                    <p>
-                        @foreach (var item in Request.Params.AllKeys)
-                        {
-                            @ViewBag.FechaInicio
-                            @ViewBag.Valor
-                            <br />
-                        }
-                    </p>
+                    <div id="GraficaLineal" style="width: 1000px !important; height: 500px !important;">
+
+                    </div>
                     <h2>
                         E. Explicación del impacto que podría tener para los costarricenses las
                         fluctuaciones a la baja o a la alza de dicho indicador
@@ -61,4 +65,42 @@
 <script src="~/Scripts/skel.min.js"></script>
 <script src="~/Scripts/util.js"></script>
 <script src="~/Scripts/main.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+    var i = 0;
+    var fecha = @Html.Raw(Json.Encode(@ViewBag.FechaInicio));
+    var valor = @Html.Raw(Json.Encode(@ViewBag.Valor));
+    var fechavista = [];
+    var valorvista = [];
+
+    for (i = 0; i < fecha.length; i++)
+    {
+        fechavista[i] = fecha[i];
+    }
+
+    for (i = 0; i < valor.length; i++)
+    {
+        valorvista[i] = valor[i];
+    }
+
+    var data = google.visualization.arrayToDataTable([
+        ['Año', 'Valor'],
+        [fechavista,  4]
+    ]);
+
+    var options = {
+        title: 'Company Performance',
+        curveType: 'function',
+        legend: { position: 'bottom' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('GraficaLineal'));
+
+    chart.draw(data, options);
+}
 </html>
