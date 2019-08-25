@@ -125,7 +125,9 @@ function drawChart() {
     var fechavista = [];
     var valorvista = [];
 
-    for (i = 0; i < fecha.length; i++)
+    try {
+
+        for (i = 0; i < fecha.length; i++)
     {
         fechavista = fecha[i];
         //fechavista[i] = fecha[i];
@@ -151,7 +153,12 @@ function drawChart() {
     var chart = new google.visualization.LineChart(document.getElementById('GraficaLineal'));
 
     chart.draw(data, options);
+
+
+    } catch (e) {
+        logMyErrors(e);
     }
+}
 
 </script>
 </html>
