@@ -37,7 +37,11 @@
                     <p></p>
                     <h2>C. Periodicidad de cálculo del indicador</h2>
                     <p></p>
-                    <h2>D. Gráfico lineal con el comportamiento histórico de los últimos 2 años</h2>
+                    <p>
+                        <h3>
+                            Gráfico lineal con el comportamiento histórico de los últimos 2 años
+                        </h3>
+                    </p>
 
                     <div id="GraficaLineal" style="width: 1000px !important; height: 500px !important;">
 
@@ -75,7 +79,9 @@ function drawChart() {
     var fechavista = [];
     var valorvista = [];
 
-    for (i = 0; i < fecha.length; i++)
+    try {
+
+        for (i = 0; i < fecha.length; i++)
     {
         fechavista = fecha[i];
         //fechavista[i] = fecha[i];
@@ -101,7 +107,12 @@ function drawChart() {
     var chart = new google.visualization.LineChart(document.getElementById('GraficaLineal'));
 
     chart.draw(data, options);
+    
+
+    } catch (e) {
+        logMyErrors(e);
     }
+}
 
 </script>
 </html>
