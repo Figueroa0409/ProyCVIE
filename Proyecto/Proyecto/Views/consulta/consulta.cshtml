@@ -26,20 +26,37 @@
                     <p>
                         @foreach (var element in Model)
                         {
-                            <h2>@element.Consulta</h2>
-                            <br />
-                            <h3>@element.Nombre</h3>
-                            <br />
-                            if (element.respuesta != null)
-                            {
-                                <h2>Respuestas:</h2>
-                                <h3 style="color:gray">@element.respuesta</h3>
-                                <br />
-                                <h3>@element.nombre</h3>
-                                <br />
-                            }
-                            @Html.ActionLink("Responder", "comentar", new { Id = element.Id })
-                            <hr />
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><h2>@element.Consulta</h2></th>
+                                </tr>
+                                <tr>
+                                    <th><h3>@element.Nombre</h3></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <tr>
+                                        <td><h3>Respuestas</h3></td>
+                                    </tr>
+                                    @if (element.respuesta != null)
+                                    {
+                                        <td>
+                                            <h4>@element.respuesta</h4>
+                                        </td>
+                                        <td>
+                                            <h4>@element.nombre</h4>
+                                        </td>
+                                    }
+                                    <td>
+                                        @Html.ActionLink("Responder", "comentar", new { Id = element.Id })
+                                        <hr />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                            
                         }
                     </p>                   
                 </div>
@@ -51,30 +68,49 @@
         <div class="inner">
             <div class="box">
                 <div class="content">
-                    <p>
-                        <h2>
-                            Realizar una consulta
-                        </h2>
-                    </p>
                     <!--Publicar oticia-->
                     @using (Html.BeginForm("publicar", "consulta", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal", @id = "contact_form" }))
                     {
-                        <fieldset>
-                            <class>
-                                <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 inputGroupContainer">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        @Html.TextBox("nombre", ViewBag.nombre as string, htmlAttributes: new { @class = "form-control", @style = "", @required = "required;", @placeholder = "Nombre", @type = "text" })
-                                    </div><br />
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
-                                        @Html.TextArea("Comentario", ViewBag.publicar as string, htmlAttributes: new { @class = "form-control", @style = "height:150px; resize:none;", @required = "required;", @placeholder = "Nueva consulta", @type = "text" })
-                                    </div><br />
-                                    <div class="input-group">
-                                        <button name="adduser" type="submit" class="btn btn-warning btn-block" id="contact-submit" style="background-color:#80808042; border-color:#80808042;">Publicar</button>
-                                    </div>
-                                </div>
-                        </fieldset>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <h2>
+                                            Realizar una consulta
+                                        </h2>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                            @Html.TextBox("nombre", ViewBag.nombre as string, htmlAttributes: new { @class = "form-control", @style = "", @required = "required;", @placeholder = "Nombre", @type = "text" })
+
+                                        </div>
+                                    </td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+                                            @Html.TextArea("Comentario", ViewBag.publicar as string, htmlAttributes: new { @class = "form-control", @style = "height:150px; resize:none;", @required = "required;", @placeholder = "Nueva consulta", @type = "text" })
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="input-group">
+                                            <button name="adduser" type="submit" class="btn btn-warning btn-block" id="contact-submit" style="background-color:#80808042; border-color:#80808042;">Publicar</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     }
                 </div>
                 <hr />

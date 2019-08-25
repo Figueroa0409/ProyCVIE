@@ -21,8 +21,8 @@ namespace Proyecto.Controllers
             DataTable dt = new DataTable();
             apiIndicadores.gee.wsindicadoreseconomicos api = new apiIndicadores.gee.wsindicadoreseconomicos();
             ds = api.ObtenerIndicadoresEconomicos("3541", "01/08/2017", "01/08/2019", "Indicadores", "s", "smal11929@gmail.com", "AM9SAML30N");
-            var arrayFecha = new string[5];//731
-            double[] arrayValor = new double[5];//731
+            var arrayFecha = new string[731];//731
+            double[] arrayValor = new double[731];//731
             try
             {
                 dt = ds.Tables[0];

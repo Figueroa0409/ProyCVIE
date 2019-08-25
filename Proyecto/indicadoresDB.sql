@@ -3,16 +3,21 @@ go
 
 --create database indicadoresDB;
 
+select * from consulta;
+select * from respuesta;
+
+delete from respuesta where id = 3;
+
 create table consulta(
 id int identity (1,1) primary key,
-nombre varchar(20),
+nombre varchar(100),
 consulta varchar(1000)
 )
 
 create table respuesta(
 id int identity(1,1) primary key,
 consultaId int,
-nombre varchar(20),
+nombre varchar(100),
 respuesta varchar(1000), 
 constraint FK_RESPUESTA_CONSULTA foreign key (consultaId) references consulta(id)
 )

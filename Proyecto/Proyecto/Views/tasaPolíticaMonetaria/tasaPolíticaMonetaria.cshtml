@@ -77,17 +77,19 @@ function drawChart() {
 
     for (i = 0; i < fecha.length; i++)
     {
-        fechavista[i] = fecha[i];
+        fechavista = fecha[i];
+        //fechavista[i] = fecha[i];
     }
 
     for (i = 0; i < valor.length; i++)
     {
-        valorvista[i] = valor[i];
+        valorvista = valor[i];
+        //valorvista[i] = valor[i];
     }
 
     var data = google.visualization.arrayToDataTable([
         ['Año', 'Valor'],
-        [fechavista,  4]
+        [fechavista,  valorvista]
     ]);
 
     var options = {
@@ -99,7 +101,7 @@ function drawChart() {
     var chart = new google.visualization.LineChart(document.getElementById('GraficaLineal'));
 
     chart.draw(data, options);
-}
+    }
 
 </script>
 </html>
