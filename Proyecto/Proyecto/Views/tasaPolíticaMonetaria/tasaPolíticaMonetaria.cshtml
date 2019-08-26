@@ -75,7 +75,6 @@
 function drawChart() {
 
             try {
-
                 var data = google.visualization.arrayToDataTable([ 
                     ['Año', 'Valor'],
                     ['@ViewBag.FechaInicio[0]', @ViewBag.Valor[0]],
@@ -599,7 +598,7 @@ function drawChart() {
                     ['@ViewBag.FechaInicio[538]', @ViewBag.Valor[538]],
                     ['@ViewBag.FechaInicio[539]', @ViewBag.Valor[539]],
                     ['@ViewBag.FechaInicio[540]', @ViewBag.Valor[540]],
-                   @* ['@ViewBag.FechaInicio[541]', @ViewBag.Valor[541]],
+                    ['@ViewBag.FechaInicio[541]', @ViewBag.Valor[541]],
                     ['@ViewBag.FechaInicio[542]', @ViewBag.Valor[542]],
                     ['@ViewBag.FechaInicio[543]', @ViewBag.Valor[543]],
                     ['@ViewBag.FechaInicio[544]', @ViewBag.Valor[544]],
@@ -758,14 +757,44 @@ function drawChart() {
                     ['@ViewBag.FechaInicio[697]', @ViewBag.Valor[697]],
                     ['@ViewBag.FechaInicio[698]', @ViewBag.Valor[698]],
                     ['@ViewBag.FechaInicio[699]', @ViewBag.Valor[699]],
-                    ['@ViewBag.FechaInicio[700]', @ViewBag.Valor[700]]*@
-
+                    ['@ViewBag.FechaInicio[700]', @ViewBag.Valor[700]],
+                    ['@ViewBag.FechaInicio[701]', @ViewBag.Valor[701]],
+                    ['@ViewBag.FechaInicio[702]', @ViewBag.Valor[702]],
+                    ['@ViewBag.FechaInicio[703]', @ViewBag.Valor[703]],
+                    ['@ViewBag.FechaInicio[704]', @ViewBag.Valor[704]],
+                    ['@ViewBag.FechaInicio[705]', @ViewBag.Valor[705]],
+                    ['@ViewBag.FechaInicio[706]', @ViewBag.Valor[706]],
+                    ['@ViewBag.FechaInicio[707]', @ViewBag.Valor[707]],
+                    ['@ViewBag.FechaInicio[708]', @ViewBag.Valor[708]],
+                    ['@ViewBag.FechaInicio[709]', @ViewBag.Valor[709]],
+                    ['@ViewBag.FechaInicio[710]', @ViewBag.Valor[710]],
+                    ['@ViewBag.FechaInicio[711]', @ViewBag.Valor[711]],
+                    ['@ViewBag.FechaInicio[712]', @ViewBag.Valor[712]],
+                    ['@ViewBag.FechaInicio[713]', @ViewBag.Valor[713]],
+                    ['@ViewBag.FechaInicio[714]', @ViewBag.Valor[714]],
+                    ['@ViewBag.FechaInicio[715]', @ViewBag.Valor[715]],
+                    ['@ViewBag.FechaInicio[716]', @ViewBag.Valor[716]],
+                    ['@ViewBag.FechaInicio[717]', @ViewBag.Valor[717]],
+                    ['@ViewBag.FechaInicio[718]', @ViewBag.Valor[718]],
+                    ['@ViewBag.FechaInicio[719]', @ViewBag.Valor[719]],
+                    ['@ViewBag.FechaInicio[720]', @ViewBag.Valor[720]],
+                    ['@ViewBag.FechaInicio[721]', @ViewBag.Valor[721]],
+                    ['@ViewBag.FechaInicio[722]', @ViewBag.Valor[722]],
+                    ['@ViewBag.FechaInicio[723]', @ViewBag.Valor[723]],
+                    ['@ViewBag.FechaInicio[724]', @ViewBag.Valor[724]],
+                    ['@ViewBag.FechaInicio[725]', @ViewBag.Valor[725]],
+                    ['@ViewBag.FechaInicio[726]', @ViewBag.Valor[726]],
+                    ['@ViewBag.FechaInicio[727]', @ViewBag.Valor[727]],
+                    ['@ViewBag.FechaInicio[728]', @ViewBag.Valor[728]],
+                    ['@ViewBag.FechaInicio[729]', @ViewBag.Valor[729]],
+                    ['@ViewBag.FechaInicio[730]', @ViewBag.Valor[730]],
+                    ['@ViewBag.FechaInicio[731]', @ViewBag.Valor[731]]                  
             ]);
 
-                var options = {
-        title: 'Company Performance',
-        curveType: 'function',
-        legend: { position: 'bottom' }
+            var options = {
+                    title: 'Company Performance',
+                    curveType: 'function',
+                    legend: { position: 'bottom' }
             };
 
             var chart = new google.visualization.LineChart(document.getElementById('GraficaLineal'));
@@ -774,8 +803,8 @@ function drawChart() {
 
 
         } catch (e) {
-        logMyErrors(e);
-    }
+            logMyErrors(e);
+        }
 }
 
 </script>
