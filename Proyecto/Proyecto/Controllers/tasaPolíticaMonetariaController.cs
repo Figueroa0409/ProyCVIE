@@ -16,7 +16,7 @@ namespace Proyecto.Controllers
         }
 
         public ActionResult tasaPolíticaMonetaria()
-        {
+        { 
             DataSet ds = new DataSet();
             DataTable dt = new DataTable();
             apiIndicadores.gee.wsindicadoreseconomicos api = new apiIndicadores.gee.wsindicadoreseconomicos();
