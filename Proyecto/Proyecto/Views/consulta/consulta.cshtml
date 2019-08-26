@@ -34,28 +34,28 @@
                                 <tr>
                                     <th><h3>@element.Nombre</h3></th>
                                 </tr>
+                                <td>
+                                    @Html.ActionLink("Responder", "comentar", new { Id = element.Id })
+                                    <hr />
+                                </td>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <tr>
-                                        <td><h3>Respuestas</h3></td>
-                                    </tr>
-                                    @if (element.respuesta != null)
-                                    {
-                                        <td>
-                                            <h4>@element.respuesta</h4>
-                                        </td>
-                                        <td>
-                                            <h4>@element.nombre</h4>
-                                        </td>
-                                    }
-                                    <td>
-                                        @Html.ActionLink("Responder", "comentar", new { Id = element.Id })
-                                        <hr />
-                                    </td>
+                                <tr>
+                                    <td><h3>Respuestas</h3></td>
                                 </tr>
-                            </tbody>
-                        </table>
+                                @if (element.respuesta != null)
+                                {
+                                <td>
+                                    <h4>@element.respuesta</h4>
+                                </td>
+                                <td>
+                                    <h4>@element.nombre</h4>
+                                </td>
+                                }
+                                </tr>
+                                </tbody>
+                            </table>
                             
                         }
                     </p>                   
@@ -110,7 +110,6 @@
                                 </tr>
                             </tbody>
                         </table>
-
                     }
                 </div>
                 <hr />
